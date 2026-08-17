@@ -1,0 +1,26 @@
+name: Import notification
+
+on:
+  push:
+    paths:
+      - .github/workflows/import-notification.yml
+  workflow_dispatch:
+
+permissions:
+  issues: write
+  contents: read
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Notify repository owner
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: 1,
+              body: '@tony14886 automated repository import is ready for file transfer.'
+            });
