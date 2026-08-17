@@ -1,0 +1,37 @@
+﻿# Environment variables and credentials
+**/.env
+**/.env.*
+!**/.env.example
+**/.npmrc
+**/*.pem
+**/*.key
+**/*.p12
+**/*.pfx
+**/credentials.json
+
+# Dependencies
+**/node_modules/
+
+# Browser profiles and local sessions
+**/.maps-browser-profile/
+
+# Build and test artifacts
+**/.next/
+**/dist/
+**/build/
+**/out/
+**/coverage/
+**/.turbo/
+**/.cache/
+**/playwright-report/
+**/test-results/
+
+# Logs and temporary files
+**/*.log
+**/.tmp-*/
+**/tmp/
+
+# Operating system files
+.DS_Store
+Thumbs.db
+Desktop.ini

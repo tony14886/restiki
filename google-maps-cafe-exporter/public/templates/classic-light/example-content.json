@@ -1,0 +1,72 @@
+{
+  "restaurant": {
+    "name": "The Garden Table",
+    "subtitle": "Seasonal kitchen in the heart of the city",
+    "description": "A JSON-powered example for the Classic Light template.",
+    "logo": null,
+    "websiteUrl": "https://restaurant.example",
+    "phone": { "display": "+44 20 5555 0180", "normalized": "+442055550180" },
+    "email": "hello@restaurant.example",
+    "address": { "display": "18 Cedar Lane, Sampleton, United Kingdom", "city": "Sampleton", "country": "United Kingdom", "latitude": null, "longitude": null },
+    "openingHours": {
+      "status": "open",
+      "todayLabel": "Mon – Sun: 08:00 – 22:00",
+      "schedule": [
+        { "label": "Mon – Fri", "value": "08:00 – 22:00" },
+        { "label": "Sat – Sun", "value": "09:00 – 22:00" }
+      ]
+    },
+    "bookingUrl": "https://restaurant.example/book",
+    "rating": 4.8,
+    "reviewsCount": 1248,
+    "category": "Contemporary café",
+    "priceLevel": "$$",
+    "locationImage": null,
+    "socials": [
+      { "platform": "instagram", "url": "https://instagram.com", "icon": "instagram" },
+      { "platform": "facebook", "url": "https://facebook.com", "icon": "facebook" },
+      { "platform": "google", "url": "https://google.com", "icon": "google" }
+    ]
+  },
+  "localization": {
+    "nativeLanguage": "en",
+    "activeLanguage": "en",
+    "languages": [
+      { "code": "en", "label": "EN" },
+      { "code": "de", "label": "DE" },
+      { "code": "fr", "label": "FR" }
+    ],
+    "translations": {
+      "en": {
+        "bookTable": "Book a table", "all": "All", "directions": "Directions", "open": "Open", "closed": "Closed", "statusUnknown": "Opening hours unavailable", "allergens": "Allergens", "ingredients": "Ingredients", "rating": "Rating", "reviews": "reviews", "contactUs": "Contact us", "followUs": "Follow us", "openingHours": "Opening hours", "website": "Website", "privacyPolicy": "Privacy policy", "termsOfService": "Terms of service", "imprint": "Imprint", "skipToMenu": "Skip to menu", "mapUnavailable": "Map is not available", "photoUnavailable": "Photo unavailable",
+        "tags": { "vegetarian": "Vegetarian", "vegan": "Vegan", "spicy": "Spicy", "gluten-related": "Gluten related", "chef-choice": "Chef's choice", "bestseller": "Bestseller", "seasonal": "Seasonal" }
+      },
+      "de": {
+        "bookTable": "Tisch reservieren", "all": "Alle", "directions": "Route", "open": "Geöffnet", "closed": "Geschlossen", "statusUnknown": "Öffnungszeiten nicht verfügbar", "allergens": "Allergene", "allergensUnverified": "Allergeninformationen müssen vom Restaurant bestätigt werden.", "ingredients": "Zutaten", "rating": "Bewertung", "reviews": "Bewertungen", "contactUs": "Kontakt", "followUs": "Folgen", "openingHours": "Öffnungszeiten", "website": "Webseite", "privacyPolicy": "Datenschutz", "termsOfService": "Nutzungsbedingungen", "imprint": "Impressum", "skipToMenu": "Zum Menü", "mapUnavailable": "Karte nicht verfügbar", "photoUnavailable": "Foto nicht verfügbar",
+        "tags": { "vegetarian": "Vegetarisch", "vegan": "Vegan", "spicy": "Scharf", "gluten-related": "Glutenhaltig", "chef-choice": "Empfehlung des Hauses", "bestseller": "Bestseller", "seasonal": "Saisonal" }
+      },
+      "fr": {
+        "bookTable": "Réserver une table", "all": "Tout", "directions": "Itinéraire", "open": "Ouvert", "closed": "Fermé", "statusUnknown": "Horaires indisponibles", "allergens": "Allergènes", "allergensUnverified": "Les informations sur les allergènes doivent être confirmées par le restaurant.", "ingredients": "Ingrédients", "rating": "Note", "reviews": "avis", "contactUs": "Nous contacter", "followUs": "Suivez-nous", "openingHours": "Horaires", "website": "Site web", "privacyPolicy": "Confidentialité", "termsOfService": "Conditions d'utilisation", "imprint": "Mentions légales", "skipToMenu": "Aller au menu", "mapUnavailable": "Carte indisponible", "photoUnavailable": "Photo indisponible",
+        "tags": { "vegetarian": "Végétarien", "vegan": "Vegan", "spicy": "Épicé", "gluten-related": "Gluten", "chef-choice": "Choix du chef", "bestseller": "Populaire", "seasonal": "De saison" }
+      }
+    }
+  },
+  "menu": {
+    "categories": [
+      { "id": "starters", "label": { "en": "Starters", "de": "Vorspeisen", "fr": "Entrées" }, "icon": "utensils", "order": 1 },
+      { "id": "mains", "label": { "en": "Main courses", "de": "Hauptgerichte", "fr": "Plats" }, "icon": "utensils", "order": 2 },
+      { "id": "desserts", "label": { "en": "Desserts", "de": "Desserts", "fr": "Desserts" }, "icon": "cake-candles", "order": 3 },
+      { "id": "drinks", "label": { "en": "Drinks", "de": "Getränke", "fr": "Boissons" }, "icon": "mug-hot", "order": 4 }
+    ],
+    "items": [
+      { "id": "burrata-salad", "categoryId": "starters", "image": { "src": "./media/burrata-salad.png", "alt": "Burrata salad with tomatoes and arugula", "width": 1024, "height": 1536, "focalPoint": "50% 50%", "sourceUrl": "Generated for the template example", "usageStatus": "allowed" }, "translations": { "en": { "name": "Burrata salad", "description": "Burrata, cherry tomatoes, arugula, olive oil and balsamic glaze.", "ingredients": "Burrata, tomatoes, arugula" }, "de": { "name": "Burrata-Salat", "description": "Burrata, Kirschtomaten, Rucola, Olivenöl und Balsamico.", "ingredients": "Burrata, Tomaten, Rucola" }, "fr": { "name": "Salade de burrata", "description": "Burrata, tomates cerises, roquette, huile d'olive et balsamique.", "ingredients": "Burrata, tomates, roquette" } }, "dietaryTags": ["vegetarian"], "allergens": ["Milk"], "allergenStatus": "verified", "featured": false, "pricing": { "native": { "formatted": "£11.50", "currency": "GBP" }, "eur": { "formatted": "€13.50" }, "usd": { "formatted": "$14.70" } } },
+      { "id": "pumpkin-soup", "categoryId": "starters", "image": { "src": "./media/pumpkin-soup.png", "alt": "Roasted pumpkin soup with pumpkin seeds", "width": 1024, "height": 1536, "focalPoint": "50% 50%", "sourceUrl": "Generated for the template example", "usageStatus": "allowed" }, "translations": { "en": { "name": "Pumpkin soup", "description": "Creamy pumpkin soup with coconut milk and pumpkin seeds.", "ingredients": "Pumpkin, coconut milk, seeds" }, "de": { "name": "Kürbissuppe", "description": "Cremige Kürbissuppe mit Kokosmilch und Kernen.", "ingredients": "Kürbis, Kokosmilch, Kerne" }, "fr": { "name": "Soupe au potiron", "description": "Velouté de potiron, lait de coco et graines.", "ingredients": "Potiron, lait de coco, graines" } }, "dietaryTags": ["vegan"], "allergens": [], "allergenStatus": "not-provided", "featured": false, "pricing": { "native": { "formatted": "£6.50", "currency": "GBP" }, "eur": { "formatted": "€7.60" }, "usd": { "formatted": "$8.30" } } },
+      { "id": "truffle-pasta", "categoryId": "mains", "image": null, "translations": { "en": { "name": "Truffle tagliatelle", "description": "Fresh tagliatelle with truffle cream, parmesan and chives.", "ingredients": "Pasta, parmesan, truffle cream" }, "de": { "name": "Trüffel-Tagliatelle", "description": "Frische Tagliatelle mit Trüffelcreme, Parmesan und Schnittlauch.", "ingredients": "Pasta, Parmesan, Trüffelcreme" }, "fr": { "name": "Tagliatelles à la truffe", "description": "Tagliatelles fraîches, crème de truffe, parmesan et ciboulette.", "ingredients": "Pâtes, parmesan, crème de truffe" } }, "dietaryTags": ["vegetarian", "chef-choice"], "allergens": ["Gluten", "Milk", "Egg"], "allergenStatus": "verified", "featured": true, "pricing": { "native": { "formatted": "£16.90", "currency": "GBP" }, "eur": { "formatted": "€19.80" }, "usd": { "formatted": "$21.50" } } },
+      { "id": "grilled-salmon", "categoryId": "mains", "image": null, "translations": { "en": { "name": "Grilled salmon", "description": "Salmon fillet with herbs, lemon butter sauce and seasonal vegetables.", "ingredients": "Salmon, butter, herbs" }, "de": { "name": "Gegrillter Lachs", "description": "Lachsfilet mit Kräutern, Zitronenbutter und Gemüse.", "ingredients": "Lachs, Butter, Kräuter" }, "fr": { "name": "Saumon grillé", "description": "Filet de saumon, herbes, beurre citronné et légumes.", "ingredients": "Saumon, beurre, herbes" } }, "dietaryTags": ["bestseller"], "allergens": ["Fish", "Milk"], "allergenStatus": "verified", "featured": true, "pricing": { "native": { "formatted": "£19.90", "currency": "GBP" }, "eur": { "formatted": "€23.30" }, "usd": { "formatted": "$25.30" } } },
+      { "id": "chocolate-cake", "categoryId": "desserts", "image": null, "translations": { "en": { "name": "Chocolate cake", "description": "Warm dark chocolate cake with vanilla ice cream.", "ingredients": "Dark chocolate, vanilla, flour" }, "de": { "name": "Schokoladenkuchen", "description": "Warmer Schokoladenkuchen mit Vanilleeis.", "ingredients": "Zartbitterschokolade, Vanille, Mehl" }, "fr": { "name": "Gâteau au chocolat", "description": "Gâteau au chocolat noir servi avec glace vanille.", "ingredients": "Chocolat noir, vanille, farine" } }, "dietaryTags": ["chef-choice"], "allergens": ["Gluten", "Milk", "Egg", "Nuts"], "allergenStatus": "unverified", "featured": true, "pricing": { "native": { "formatted": "£6.90", "currency": "GBP" }, "eur": { "formatted": "€8.10" }, "usd": { "formatted": "$8.80" } } },
+      { "id": "iced-latte", "categoryId": "drinks", "image": null, "translations": { "en": { "name": "Iced latte", "description": "Espresso with cold milk and ice cubes.", "ingredients": "Espresso, milk, ice" }, "de": { "name": "Iced Latte", "description": "Espresso mit kalter Milch und Eiswürfeln.", "ingredients": "Espresso, Milch, Eis" }, "fr": { "name": "Latte glacé", "description": "Espresso, lait froid et glaçons.", "ingredients": "Espresso, lait, glaçons" } }, "dietaryTags": [], "allergens": ["Milk"], "allergenStatus": "verified", "featured": false, "pricing": { "native": { "formatted": "£4.90", "currency": "GBP" }, "eur": { "formatted": "€5.70" }, "usd": { "formatted": "$6.20" } } }
+    ]
+  },
+  "map": { "provider": "placeholder", "embedUrl": "", "directionsUrl": "https://maps.google.com/?q=18+Cedar+Lane", "latitude": null, "longitude": null, "markerLabel": "The Garden Table" },
+  "footer": { "copyright": "© 2026 The Garden Table. All rights reserved.", "privacyUrl": "https://restaurant.example/privacy", "termsUrl": "https://restaurant.example/terms", "imprintUrl": "https://restaurant.example/imprint" }
+}

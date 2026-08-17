@@ -1,0 +1,411 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Кафе — экспорт из Google Maps</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <nav class="app-tabs" aria-label="Разделы приложения">
+        <button class="app-tab is-active" type="button" data-tab="parser">Парсинг</button>
+        <button class="app-tab" type="button" data-tab="arrays">Массивы</button>
+        <button class="app-tab" type="button" data-tab="scorings">Скоринг</button>
+        <button class="app-tab" type="button" data-tab="candidates">Кандидаты</button>
+        <button class="app-tab" type="button" data-tab="production">Прод</button>
+        <button class="app-tab" type="button" data-tab="sendings">Отправка</button>
+      </nav>
+
+      <section id="parser-view" class="app-view">
+      <section class="hero">
+        <p class="eyebrow">Локальный сборщик лидов</p>
+        <h1>Кафе вокруг центра города</h1>
+        <p class="lead">Google Maps открывается в отдельном окне. Данные сайта заведения дополняют карточку e‑mail и соцсетями.</p>
+      </section>
+
+      <section class="panel" aria-label="Параметры поиска">
+        <form id="search-form">
+          <label>Город
+            <input id="city" name="city" placeholder="Минск, Беларусь" value="Минск, Беларусь" required maxlength="120" />
+          </label>
+          <label>Радиус от центра, км
+            <input id="radius" name="radius" type="number" min="0.3" max="25" value="3" step="0.1" required />
+          </label>
+          <label>Максимум карточек
+            <input id="limit" name="limit" type="number" min="1" max="120" value="60" step="1" required />
+          </label>
+          <div class="form-actions">
+            <button id="submit" type="submit">Собрать таблицу</button>
+            <button id="stop" class="stop-button" type="button" hidden>Стоп</button>
+          </div>
+        </form>
+        <p class="hint">Сбор работает в свёрнутом Chromium в фоне — окно не будет перекрывать другие программы. Вход в Google не нужен: согласие на cookie отклоняется автоматически и запоминается локально. Координаты центра определяются без ключа, а карточки — в Google Maps. При CAPTCHA остановите запуск и повторите позднее.</p>
+      </section>
+
+      <section id="status" class="status" aria-live="polite">Укажите город и запустите сбор.</section>
+      <section id="summary" class="summary" hidden></section>
+
+      <section id="results" class="results" hidden>
+        <div class="table-toolbar">
+          <h2>Результаты</h2>
+          <button id="csv" class="secondary" type="button">Скачать Excel</button>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Название</th>
+                <th>Адрес</th>
+                <th>Отзывов</th>
+                <th>Сайт</th>
+                <th>Соцсети</th>
+                <th>E-mail</th>
+                <th>Самый новый отзыв</th>
+              </tr>
+            </thead>
+            <tbody id="table-body"></tbody>
+          </table>
+        </div>
+      </section>
+      </section>
+
+      <section id="arrays-view" class="app-view" hidden>
+        <section class="arrays-hero">
+          <p class="eyebrow">Сохранённые запуски</p>
+          <h1>Массивы кафе</h1>
+          <p class="lead">Каждый успешный запуск парсинга сохраняется здесь. Скоринг оценивает готовность кафе к первичному контакту по полноте контактов, активности и отзывам.</p>
+        </section>
+        <section class="arrays-panel">
+          <div class="table-toolbar">
+            <div>
+              <h2>Список массивов</h2>
+              <p id="arrays-status" class="table-subtitle">Загрузка сохранённых запусков…</p>
+            </div>
+          </div>
+          <div id="arrays-bulk-actions" class="bulk-actions" hidden>
+            <span id="arrays-selection-count" class="bulk-selection-count" aria-live="polite"></span>
+            <button id="arrays-bulk-delete" class="array-action delete-button" type="button">Удалить выбранные</button>
+          </div>
+          <div class="table-wrap">
+            <table class="arrays-table">
+              <thead>
+                <tr>
+                  <th class="table-select-header"><input id="arrays-select-all" type="checkbox" aria-label="Выбрать все массивы"></th>
+                  <th><button class="sort-button" type="button" data-array-sort="number">№</button></th>
+                  <th><button class="sort-button" type="button" data-array-sort="name">Название</button></th>
+                  <th><button class="sort-button" type="button" data-array-sort="createdAt">Дата</button></th>
+                  <th><button class="sort-button" type="button" data-array-sort="score">Рейтинг</button></th>
+                  <th><button class="sort-button" type="button" data-array-sort="action">Действие</button></th>
+                </tr>
+              </thead>
+              <tbody id="arrays-body"></tbody>
+            </table>
+          </div>
+        </section>
+      </section>
+
+      <section id="scorings-view" class="app-view" hidden>
+        <section class="arrays-hero">
+          <p class="eyebrow">Аналитика лидов</p>
+          <h1>Результаты скоринга</h1>
+          <p class="lead">Здесь сохраняются результаты анализа массивов. Откройте название, чтобы увидеть баллы и готовность каждого кафе к контакту.</p>
+        </section>
+        <section class="arrays-panel">
+          <div class="table-toolbar">
+            <div>
+              <h2>Список скорингов</h2>
+              <p id="scorings-status" class="table-subtitle">Загрузка результатов скоринга…</p>
+            </div>
+          </div>
+          <div id="scorings-bulk-actions" class="bulk-actions" hidden>
+            <span id="scorings-selection-count" class="bulk-selection-count" aria-live="polite"></span>
+            <button id="scorings-bulk-delete" class="array-action delete-button" type="button">Удалить выбранные</button>
+          </div>
+          <div class="table-wrap">
+            <table class="scorings-table">
+              <thead>
+                <tr>
+                  <th class="table-select-header"><input id="scorings-select-all" type="checkbox" aria-label="Выбрать все скоринги"></th>
+                  <th><button class="sort-button" type="button" data-scoring-sort="number">№</button></th>
+                  <th><button class="sort-button" type="button" data-scoring-sort="name">Название массива</button></th>
+                  <th><button class="sort-button" type="button" data-scoring-sort="scoredAt">Дата скоринга</button></th>
+                  <th><button class="sort-button" type="button" data-scoring-sort="action">Действия</button></th>
+                </tr>
+              </thead>
+              <tbody id="scorings-body"></tbody>
+            </table>
+          </div>
+        </section>
+      </section>
+
+      <section id="candidates-view" class="app-view" hidden>
+        <section class="arrays-hero">
+          <p class="eyebrow">Отобранные лиды</p>
+          <h1>Кандидаты</h1>
+          <p class="lead">Сюда попадают кафе со Score 22 и выше. Переключайте список по наличию меню на сайте и выбирайте кафе для передачи в прод.</p>
+        </section>
+        <section class="arrays-panel">
+          <div class="table-toolbar candidates-toolbar">
+            <div>
+              <h2>Список кандидатов</h2>
+              <p id="candidates-status" class="table-subtitle">Загрузка кандидатов…</p>
+            </div>
+            <div class="menu-toggle" aria-label="Фильтр по меню на сайте">
+              <button id="candidates-with-menu" class="menu-toggle-button is-active" type="button" data-candidate-menu="with">Есть меню на сайте</button>
+              <button id="candidates-without-menu" class="menu-toggle-button" type="button" data-candidate-menu="without">Нет меню на сайте</button>
+            </div>
+          </div>
+          <div id="candidates-bulk-actions" class="bulk-actions" hidden>
+            <span id="candidates-selection-count" class="bulk-selection-count" aria-live="polite"></span>
+            <button id="candidates-bulk-delete" class="array-action delete-button" type="button">Удалить выбранные</button>
+          </div>
+          <div class="table-wrap">
+            <table class="candidates-table">
+              <thead>
+                <tr>
+                  <th class="table-select-header"><input id="candidates-select-all" type="checkbox" aria-label="Выбрать все подборки кандидатов"></th>
+                  <th><button class="sort-button" type="button" data-candidate-sort="number">№</button></th>
+                  <th><button class="sort-button" type="button" data-candidate-sort="name">Название массива</button></th>
+                  <th><button class="sort-button" type="button" data-candidate-sort="selectedAt">Дата отбора</button></th>
+                  <th><button class="sort-button" type="button" data-candidate-sort="action">Действия</button></th>
+                </tr>
+              </thead>
+              <tbody id="candidates-body"></tbody>
+            </table>
+          </div>
+        </section>
+      </section>
+
+      <section id="production-view" class="app-view" hidden>
+        <div class="production-full-tool">
+          <div class="page-heading production-heading">
+            <div>
+              <p class="eyebrow">5 · прод</p>
+              <h1>Прод</h1>
+            </div>
+          </div>
+
+          <section class="panel production-cafes-panel" aria-label="Кафе, переданные в прод">
+            <div class="production-cafes-toolbar">
+              <div>
+                <p class="eyebrow">выбор кафе</p>
+                <h2>Кафе, переданные в прод</h2>
+                <p id="production-cafes-status">Выберите кафе, фон и нажмите «Разложить на ассеты». Для уже готового разбора фон можно поменять здесь же — без повторного извлечения ассетов.</p>
+              </div>
+              <div class="production-cafes-actions">
+                <div class="menu-toggle production-menu-toggle" aria-label="Фильтр по меню на сайте">
+                  <button class="menu-toggle-button is-active" type="button" data-production-menu="with">Есть меню на сайте</button>
+                  <button class="menu-toggle-button" type="button" data-production-menu="without">Нет меню на сайте</button>
+                </div>
+                <label class="template-picker">Прототип лендинга
+                  <select id="template-select" aria-label="Выбрать прототип лендинга">
+                    <option value="classic-light-1" selected>Шаблон №1 · Classic Light</option>
+                    <option value="cinematic-video-2">Шаблон №2 · Cinematic Video</option>
+                  </select>
+                </label>
+                <label class="template-picker background-picker">Фон
+                  <select id="classic-light-background" aria-label="Выбрать фон для Classic Light">
+                    <option value="">Без фона</option>
+                  </select>
+                </label>
+                <button id="run-audit" class="button" type="button" disabled>Разложить на ассеты</button>
+              </div>
+            </div>
+            <div class="production-cafes-table-wrap">
+              <table class="production-cafes-table">
+                <thead>
+                  <tr>
+                    <th class="production-check-column"><input id="production-cafe-select-all" type="checkbox" aria-label="Выбрать все кафе в текущем режиме" /></th>
+                    <th><button class="production-sort" type="button" data-production-sort="name">Кафе</button></th>
+                    <th><button class="production-sort" type="button" data-production-sort="website">URL</button></th>
+                    <th><button class="production-sort" type="button" data-production-sort="email">E-mail</button></th>
+                    <th><button class="production-sort" type="button" data-production-sort="score">Score</button></th>
+                    <th><button class="production-sort" type="button" data-production-sort="assets">Ассеты</button></th>
+                    <th><button class="production-sort" type="button" data-production-sort="priority">Приоритет</button></th>
+                  </tr>
+                </thead>
+                <tbody id="production-cafes-body"></tbody>
+              </table>
+            </div>
+            <div class="production-cafes-footer">
+              <button id="delete-production-cafes" class="button danger" type="button" disabled>Удалить выбранные</button>
+            </div>
+          </section>
+
+          <section class="panel audit-launch legacy-audit-launch" aria-hidden="true" hidden>
+            <div><p class="eyebrow">без генерации HTML</p><h2>Разобрать выбранные кафе</h2><p>Из прототипа фиксируется только структура. Шрифты, цвета, фото, логотип, фоны, контакты и меню собираются исключительно с сайта выбранного кафе.</p></div>
+            <label class="template-picker">Прототип лендинга
+              <select id="legacy-template-select" aria-label="Выбрать прототип лендинга">
+                <option value="classic-light-1" selected>Шаблон №1 · Classic Light</option>
+                <option value="cinematic-video-2">Шаблон №2 · Cinematic Video</option>
+              </select>
+            </label>
+            <button id="legacy-run-audit" class="button" type="button">Собрать prod package</button>
+          </section>
+          <section id="audit-status" class="status" aria-live="polite">Выберите хотя бы одно кафе.</section>
+
+          <section id="audit-results" hidden>
+            <div class="result-heading">
+              <div><p class="eyebrow">результат разбора</p><h2>Элементы для импорта</h2></div>
+              <button id="download-audit" class="text-button" type="button">Скачать prod JSON ↓</button>
+            </div>
+
+            <section class="audit-overview">
+              <div id="audit-state" class="audit-state"></div>
+              <div class="approval-note"><strong>Статусы Classic Light:</strong> <code>found</code> — найдено в источнике; <code>derived</code> — создано автоматически; <code>needs_review</code> — требуется проверка; <code>missing</code> — не найдено.</div>
+            </section>
+
+            <section id="classic-light-section" class="evidence-section classic-light-section" hidden>
+              <div class="section-title"><div><p class="eyebrow">Classic Light · контракт 01–52</p><div class="classic-light-heading"><h2>Элементы, статусы и замечания</h2><span id="classic-light-cafe-name" class="active-cafe-badge" hidden></span></div></div><div class="classic-light-links"><a id="classic-light-preview" class="button classic-light-preview-button" href="/templates/classic-light/template.html" target="_blank" rel="noreferrer" hidden>Открыть Classic Light ↗</a><a id="classic-light-anatomy" class="text-button" href="/templates/classic-light/template.anatomy.json" target="_blank" rel="noreferrer">Открыть anatomy JSON ↗</a></div></div>
+              <p class="classic-light-note">В таблице отображается только фактическое значение, его статус, замечание и источник. Автодополнения явно отмечены, чтобы их можно было проверить до импорта.</p>
+              <section class="classic-publish-panel" aria-label="Публикация демо-лендинга">
+                <div>
+                  <p class="eyebrow">публичная демо-ссылка</p>
+                  <h3>Показать лендинг клиенту</h3>
+                  <p>Создаётся отдельная статическая версия и полноценный закрытый кабинет этого кафе: меню, цены, фото, часы, контакты, QR-коды, аналитика, черновики, публикации и откат версий.</p>
+                </div>
+                <label>Поддомен
+                  <span class="classic-publish-domain"><input id="classic-light-publish-slug" inputmode="latin" autocomplete="off" autocapitalize="none" spellcheck="false" maxlength="63" placeholder="cafe-name" pattern="[a-z0-9][a-z0-9-]*" />.menu-on.com</span>
+                </label>
+                <button id="classic-light-publish" class="button" type="button" disabled>Опубликовать демо</button>
+                <p id="classic-light-publish-status" class="classic-publish-status" aria-live="polite">Сначала выберите кафе с сохранённым разбором.</p>
+                <a id="classic-light-published-link" class="button classic-light-preview-button" href="#" target="_blank" rel="noreferrer" hidden>Открыть опубликованный лендинг ↗</a>
+                <a id="classic-light-admin-link" class="button classic-light-preview-button" href="#" target="_blank" rel="noreferrer" hidden>Открыть кабинет кафе ↗</a>
+                <button id="classic-light-send" class="button secondary" type="button" disabled>Передать в «Отправку»</button>
+                <p id="classic-light-admin-credentials" class="classic-publish-credentials" hidden></p>
+              </section>
+              <div class="classic-component-table-wrap"><table class="classic-component-table"><thead><tr><th><button type="button" class="classic-sort" data-classic-sort="number">№</button></th><th><button type="button" class="classic-sort" data-classic-sort="element">Раздел / элемент</button></th><th><button type="button" class="classic-sort" data-classic-sort="status">Статус</button></th><th><button type="button" class="classic-sort" data-classic-sort="data">Данные</button></th><th><button type="button" class="classic-sort" data-classic-sort="note">Замечание</button></th><th><button type="button" class="classic-sort" data-classic-sort="source">Источник</button></th></tr></thead><tbody id="classic-light-components"></tbody></table></div>
+            </section>
+
+            <section class="evidence-section">
+              <div class="section-title"><div><p class="eyebrow">02 · brand evidence</p><h2>Бренд кафе</h2></div><select id="brand-select" aria-label="Выбрать кафе для просмотра прод-разбора"></select></div>
+              <div id="brand-summary" class="brand-summary"></div>
+              <section class="brand-tokens">
+                <div><p class="eyebrow sublabel">Найденные шрифты</p><div id="brand-typography" class="type-list"></div></div>
+                <div><p class="eyebrow sublabel">Цвет текста</p><div id="brand-text-colors" class="palette-list"></div></div>
+                <div><p class="eyebrow sublabel">Фон и поверхности</p><div id="brand-surface-colors" class="palette-list"></div></div>
+              </section>
+              <section class="brand-facts-section"><p class="eyebrow sublabel">Контакты и язык</p><dl id="brand-facts" class="fact-list"></dl></section>
+              <section class="brand-content-section"><p class="eyebrow sublabel">Текстовые ассеты будущего лендинга · выберите подтверждённые</p><div id="brand-seo-drafts" class="seo-draft-grid"></div></section>
+              <section class="brand-content-section"><p class="eyebrow sublabel">Меню кафе: максимум 12 позиций · текст и нативные цены по языкам сайта</p><div id="brand-menu-content" class="menu-language-list"></div></section>
+              <section class="brand-assets-section"><p class="eyebrow sublabel">Кандидаты ассетов · выберите подтверждённые</p><div id="brand-assets" class="asset-grid"></div></section>
+            </section>
+
+            <section class="evidence-section">
+              <div class="section-title"><div><p class="eyebrow">03 · validation</p><h2>Готовность данных</h2></div><span id="approval-count" class="state">0 подтверждённых данных</span></div>
+              <div id="validation-list" class="validation-list"></div>
+            </section>
+
+            <section class="evidence-section landing-preview-section">
+              <div class="section-title"><div><p class="eyebrow">04 · landing preview</p><h2>Превью будущего лендинга</h2></div><span class="state">Только для согласования</span></div>
+              <p class="landing-preview-note">Экран показывает расположение блоков и применение собранных бренд-данных. Это не сгенерированный лендинг и не заменяет ручное подтверждение ассетов.</p>
+              <div id="landing-preview" class="landing-preview"></div>
+              <p class="landing-demo-link"><a class="button" href="/phil-landing.html" target="_blank" rel="noreferrer">Вариант 1 · лендинг phil ↗</a> <a class="button" href="/phil-landing-video.html" target="_blank" rel="noreferrer">Вариант 2 · сквозное видео ↗</a></p>
+            </section>
+          </section>
+        </div>
+
+        <div class="production-legacy" hidden>
+        <section class="arrays-hero">
+          <p class="eyebrow">Прод-разбор</p>
+          <h1>Прод</h1>
+          <p class="lead">Сюда попадают кафе, отмеченные во вкладке «Кандидаты». Здесь собираем рабочие данные для будущего импорта в каркас лендинга: ассеты сайта клиента, шрифты, цвета, тексты, меню и источники.</p>
+        </section>
+
+        <section class="arrays-panel production-panel">
+          <div class="table-toolbar production-toolbar">
+            <div>
+              <h2>Кафе в проде</h2>
+              <p id="production-status" class="table-subtitle">Загрузка прод-кандидатов…</p>
+            </div>
+            <div class="production-actions">
+              <label>Прототип
+                <select id="production-template">
+                  <option value="classic-light-1" selected>Шаблон №1 · Classic Light</option>
+                  <option value="cinematic-video-2">Шаблон №2 · Cinematic Video</option>
+                </select>
+              </label>
+              <button id="production-run" type="button">Собрать prod package</button>
+            </div>
+          </div>
+
+          <div class="table-wrap">
+            <table class="production-table">
+              <thead>
+                <tr>
+                  <th><input id="production-select-all" type="checkbox" aria-label="Выбрать все кафе в проде" /></th>
+                  <th>Кафе</th>
+                  <th>Сайт</th>
+                  <th>Score</th>
+                  <th>Источник</th>
+                  <th>Передано</th>
+                </tr>
+              </thead>
+              <tbody id="production-body"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="production-results" class="production-results" hidden>
+          <div class="production-result-head">
+            <div>
+              <p class="eyebrow">Рабочие данные</p>
+              <h2>Элементы для импорта</h2>
+            </div>
+            <button id="production-download" class="secondary" type="button">Скачать prod JSON</button>
+          </div>
+          <div id="production-summary" class="production-summary"></div>
+          <div id="production-audit" class="production-audit"></div>
+        </section>
+        </div>
+      </section>
+
+      <section id="sendings-view" class="app-view" hidden>
+        <section class="arrays-hero">
+          <p class="eyebrow">6 · коммуникация</p>
+          <h1>Отправка</h1>
+          <p class="lead">Здесь собраны опубликованные демо-лендинги и контакты кафе для персональной отправки предложения.</p>
+        </section>
+        <section class="arrays-panel sendings-panel">
+          <div class="table-toolbar sendings-toolbar">
+            <div>
+              <h2>Очередь отправки</h2>
+              <p id="sendings-status" class="table-subtitle">Загрузка очереди…</p>
+            </div>
+            <button id="sendings-bulk-delete" class="secondary danger" type="button" hidden>Удалить выбранные</button>
+          </div>
+          <div class="table-wrap sendings-table-wrap">
+            <table class="sendings-table">
+              <thead>
+                <tr>
+                  <th class="table-select-header"><input id="sendings-select-all" type="checkbox" aria-label="Выбрать все кафе в очереди отправки" /></th>
+                  <th><button class="sort-button" type="button" data-sending-sort="cafeName">Название кафе</button></th>
+                  <th><button class="sort-button" type="button" data-sending-sort="language">Язык</button></th>
+                  <th><button class="sort-button" type="button" data-sending-sort="landingUrl">Ссылка на лендинг</button></th>
+                  <th><button class="sort-button" type="button" data-sending-sort="adminUrl">Ссылка на админку</button></th>
+                  <th><button class="sort-button" type="button" data-sending-sort="template">Шаблон</button></th>
+                  <th><button class="sort-button" type="button" data-sending-sort="emails">E-mail</button></th>
+                  <th><button class="sort-button" type="button" data-sending-sort="socials">Соцсети</button></th>
+                  <th><button class="sort-button" type="button" data-sending-sort="phone">Телефон</button></th>
+                  <th>Письмо</th>
+                </tr>
+              </thead>
+              <tbody id="sendings-body"></tbody>
+            </table>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <dialog id="offer-dialog" class="offer-dialog">
+      <div class="offer-dialog-head">
+        <div><p class="eyebrow">Письмо-оффер</p><h2 id="offer-dialog-title">Кафе</h2><p id="offer-dialog-language" class="table-subtitle"></p></div>
+        <button id="offer-dialog-close" class="offer-dialog-close" type="button" aria-label="Закрыть">×</button>
+      </div>
+      <div id="offer-dialog-text" class="offer-dialog-text"></div>
+      <p class="offer-dialog-note">Текст оффера будет добавлен после получения языковых версий. Ссылки и данные кафе уже подготовлены.</p>
+    </dialog>
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>

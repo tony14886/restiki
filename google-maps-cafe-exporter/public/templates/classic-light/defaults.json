@@ -1,0 +1,92 @@
+{
+  "template": {
+    "id": "classic-light",
+    "version": "1.2.0"
+  },
+  "restaurant": {
+    "name": "",
+    "subtitle": "",
+    "description": "",
+    "logo": null,
+    "websiteUrl": "",
+    "phone": { "display": "", "normalized": "" },
+    "email": "",
+    "address": { "display": "", "city": "", "country": "", "latitude": null, "longitude": null },
+    "openingHours": { "status": "unknown", "todayLabel": "", "schedule": [] },
+    "bookingUrl": "",
+    "rating": null,
+    "reviewsCount": null,
+    "category": "",
+    "priceLevel": "",
+    "locationImage": null,
+    "socials": []
+  },
+  "localization": {
+    "nativeLanguage": "en",
+    "activeLanguage": "en",
+    "languages": [{ "code": "en", "label": "EN" }],
+    "translations": {
+      "en": {
+        "bookTable": "Book a table",
+        "all": "All",
+        "directions": "Directions",
+        "open": "Open",
+        "closed": "Closed",
+        "statusUnknown": "Opening hours unavailable",
+        "allergens": "Allergens",
+        "ingredients": "Ingredients",
+        "rating": "Rating",
+        "reviews": "reviews",
+        "contactUs": "Contact us",
+        "followUs": "Follow us",
+        "openingHours": "Opening hours",
+        "website": "Website",
+        "privacyPolicy": "Privacy policy",
+        "termsOfService": "Terms of service",
+        "imprint": "Imprint",
+        "skipToMenu": "Skip to menu",
+        "mapUnavailable": "Map is not available",
+        "photoUnavailable": "Photo unavailable",
+        "tags": {
+          "vegetarian": "Vegetarian",
+          "vegan": "Vegan",
+          "spicy": "Spicy",
+          "gluten-related": "Gluten related",
+          "chef-choice": "Chef's choice",
+          "bestseller": "Bestseller",
+          "seasonal": "Seasonal"
+        }
+      }
+    }
+  },
+  "menu": { "categories": [], "items": [] },
+  "map": { "provider": "", "embedUrl": "", "directionsUrl": "", "latitude": null, "longitude": null, "markerLabel": "" },
+  "locationCard": { "name": "", "rating": null, "reviewsCount": null, "address": null, "miniPhoto": null, "openingHours": {}, "directionsUrl": "" },
+  "theme": {
+    "headingFont": "Playfair Display",
+    "bodyFont": "Inter",
+    "pageBackground": "#f8f6f1",
+    "surfaceColor": "#ffffff",
+    "textColor": "#171914",
+    "mutedColor": "#686960",
+    "primaryColor": "#315c27",
+    "primaryHoverColor": "#25491e",
+    "accentColor": "#c8a16c",
+    "borderColor": "#e8e3da",
+    "errorColor": "#a94343",
+    "warningColor": "#a67c36",
+    "cardRadius": 12,
+    "buttonRadius": 8
+  },
+  "templateOptions": {
+    "showIngredients": true,
+    "showAllergens": true,
+    "showConvertedPrices": true,
+    "showMap": true,
+    "showSocials": true,
+    "showBookingButton": true,
+    "stickyCategories": true,
+    "menuDensity": "comfortable"
+  },
+  "footer": { "copyright": "", "privacyUrl": "", "termsUrl": "", "imprintUrl": "" }
+}

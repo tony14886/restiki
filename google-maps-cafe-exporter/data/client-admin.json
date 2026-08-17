@@ -1,0 +1,1594 @@
+{
+  "tenant": {
+    "id": "demo-restaurant",
+    "name": "Демо-ресторан",
+    "plan": "Professional",
+    "domain": "demo-restaurant.menu"
+  },
+  "user": {
+    "id": "restaurant-owner",
+    "name": "Владелец ресторана",
+    "role": "Owner",
+    "email": "owner@demo-restaurant.menu"
+  },
+  "draft": {
+    "id": "draft-6",
+    "number": 6,
+    "updatedAt": "2026-08-10T09:13:37.671Z",
+    "updatedBy": "Владелец ресторана",
+    "restaurant": {
+      "name": "Демо-ресторан",
+      "subtitle": "Seasonal kitchen and coffee in the heart of Milan",
+      "description": "Warm all-day caf? with seasonal ingredients, a thoughtful wine list and a calm place to gather.",
+      "logoUrl": "",
+      "address": "Via della Moscova 18, 20121 Milano, Italy",
+      "phone": "+39 02 9475 2210",
+      "email": "hello@demorestaurant.it",
+      "websiteUrl": "https://demorestaurant.menu",
+      "bookingUrl": "https://demorestaurant.menu/book",
+      "orderUrl": "https://demorestaurant.menu/order",
+      "socials": [
+        {
+          "platform": "Instagram",
+          "url": "https://instagram.com/demorestaurant"
+        }
+      ]
+    },
+    "languages": [
+      {
+        "code": "en",
+        "label": "EN"
+      },
+      {
+        "code": "de",
+        "label": "DE"
+      },
+      {
+        "code": "es",
+        "label": "ES"
+      },
+      {
+        "code": "pt",
+        "label": "PT"
+      },
+      {
+        "code": "it",
+        "label": "IT"
+      },
+      {
+        "code": "cs",
+        "label": "CS"
+      },
+      {
+        "code": "hu",
+        "label": "HU"
+      },
+      {
+        "code": "pl",
+        "label": "PL"
+      },
+      {
+        "code": "nl",
+        "label": "NL"
+      },
+      {
+        "code": "fr",
+        "label": "FR"
+      },
+      {
+        "code": "hr",
+        "label": "HR"
+      }
+    ],
+    "menuMode": "regular",
+    "openingHours": [
+      {
+        "id": "mon-fri",
+        "day": "Mon - Fri",
+        "from": "08:00",
+        "to": "22:00",
+        "closed": false
+      },
+      {
+        "id": "sat",
+        "day": "Saturday",
+        "from": "09:00",
+        "to": "23:00",
+        "closed": false
+      },
+      {
+        "id": "sun",
+        "day": "Sunday",
+        "from": "09:00",
+        "to": "18:00",
+        "closed": false
+      }
+    ],
+    "kitchenHours": [
+      {
+        "id": "kitchen-mon-fri",
+        "day": "Mon - Fri",
+        "from": "08:00",
+        "to": "22:00",
+        "closed": false
+      },
+      {
+        "id": "kitchen-sat",
+        "day": "Saturday",
+        "from": "09:00",
+        "to": "23:00",
+        "closed": false
+      },
+      {
+        "id": "kitchen-sun",
+        "day": "Sunday",
+        "from": "09:00",
+        "to": "18:00",
+        "closed": false
+      }
+    ],
+    "specialOpeningHours": [],
+    "temporaryClosure": {
+      "closed": false,
+      "resumeDate": "",
+      "message": ""
+    },
+    "categories": [
+      {
+        "id": "breakfast",
+        "name": {
+          "en": "Breakfast",
+          "de": "",
+          "es": "",
+          "pt": "",
+          "it": "Colazione",
+          "cs": "",
+          "hu": "",
+          "pl": "",
+          "nl": "",
+          "fr": "",
+          "hr": ""
+        },
+        "icon": "sun",
+        "order": 1
+      },
+      {
+        "id": "mains",
+        "name": {
+          "en": "Mains",
+          "de": "",
+          "es": "",
+          "pt": "",
+          "it": "Piatti principali",
+          "cs": "",
+          "hu": "",
+          "pl": "",
+          "nl": "",
+          "fr": "",
+          "hr": ""
+        },
+        "icon": "plate",
+        "order": 2
+      },
+      {
+        "id": "coffee",
+        "name": {
+          "en": "Coffee & drinks",
+          "de": "",
+          "es": "",
+          "pt": "",
+          "it": "Caff? e bevande",
+          "cs": "",
+          "hu": "",
+          "pl": "",
+          "nl": "",
+          "fr": "",
+          "hr": ""
+        },
+        "icon": "cup",
+        "order": 3
+      }
+    ],
+    "menuItems": [
+      {
+        "id": "burrata-toast",
+        "categoryId": "breakfast",
+        "name": {
+          "en": "Burrata09-",
+          "de": "",
+          "es": "",
+          "pt": "",
+          "it": "Toast alla burrata",
+          "cs": "",
+          "hu": "",
+          "pl": "",
+          "nl": "",
+          "fr": "",
+          "hr": ""
+        },
+        "description": {
+          "en": "Sourdough, burrata, roasted tomatoe-09",
+          "de": "",
+          "es": "",
+          "pt": "",
+          "it": "Pane a lievitazione naturale, burrata, pomodori arrosto e olio al basilico.",
+          "cs": "",
+          "hu": "",
+          "pl": "",
+          "nl": "",
+          "fr": "",
+          "hr": ""
+        },
+        "price": {
+          "amount": 12.99,
+          "currency": "EUR"
+        },
+        "imageUrl": "/uploads/client-admin/66bf5629-ad0d-41ea-a653-7c07a1bbcfb7.jpg",
+        "portion": "",
+        "variants": [],
+        "modifiers": [],
+        "tags": [
+          "vegetarian",
+          "bestseller"
+        ],
+        "allergens": [
+          "allergen:milk",
+          "allergen:gluten"
+        ],
+        "allergensConfirmed": false,
+        "availability": "available",
+        "visibility": "visible",
+        "featured": true,
+        "order": 1
+      },
+      {
+        "id": "miso-salmon",
+        "categoryId": "mains",
+        "name": {
+          "en": "Miso salmon bowl",
+          "de": "",
+          "es": "",
+          "pt": "",
+          "it": "Bowl di salmone al miso",
+          "cs": "",
+          "hu": "",
+          "pl": "",
+          "nl": "",
+          "fr": "",
+          "hr": ""
+        },
+        "description": {
+          "en": "Glazed salmon, brown rice, greens and sesame.",
+          "de": "",
+          "es": "",
+          "pt": "",
+          "it": "Salmone glassato, riso integrale, verdure e sesamo.",
+          "cs": "",
+          "hu": "",
+          "pl": "",
+          "nl": "",
+          "fr": "",
+          "hr": ""
+        },
+        "price": {
+          "amount": 18,
+          "currency": "EUR"
+        },
+        "imageUrl": "",
+        "portion": "",
+        "variants": [],
+        "modifiers": [],
+        "tags": [
+          "bestseller"
+        ],
+        "allergens": [
+          "allergen:fish",
+          "allergen:sesame"
+        ],
+        "allergensConfirmed": false,
+        "availability": "available",
+        "visibility": "visible",
+        "featured": false,
+        "order": 2
+      },
+      {
+        "id": "iced-latte",
+        "categoryId": "coffee",
+        "name": {
+          "en": "Iced latte",
+          "de": "",
+          "es": "",
+          "pt": "",
+          "it": "Latte freddo",
+          "cs": "",
+          "hu": "",
+          "pl": "",
+          "nl": "",
+          "fr": "",
+          "hr": ""
+        },
+        "description": {
+          "en": "Double espresso, milk and house vanilla.",
+          "de": "",
+          "es": "",
+          "pt": "",
+          "it": "Doppio espresso, latte e vaniglia della casa.",
+          "cs": "",
+          "hu": "",
+          "pl": "",
+          "nl": "",
+          "fr": "",
+          "hr": ""
+        },
+        "price": {
+          "amount": 5.5,
+          "currency": "EUR"
+        },
+        "imageUrl": "",
+        "portion": "",
+        "variants": [],
+        "modifiers": [],
+        "tags": [
+          "vegetarian"
+        ],
+        "allergens": [
+          "allergen:milk"
+        ],
+        "allergensConfirmed": false,
+        "availability": "available",
+        "visibility": "visible",
+        "featured": false,
+        "order": 3
+      },
+      {
+        "id": "peach-cake",
+        "categoryId": "breakfast",
+        "name": {
+          "en": "Peach olive-oil cake",
+          "de": "",
+          "es": "",
+          "pt": "",
+          "it": "Torta alle pesche e olio d'oliva",
+          "cs": "",
+          "hu": "",
+          "pl": "",
+          "nl": "",
+          "fr": "",
+          "hr": ""
+        },
+        "description": {
+          "en": "A seasonal slice with mascarpone cream.",
+          "de": "",
+          "es": "",
+          "pt": "",
+          "it": "Una fetta stagionale con crema al mascarpone.",
+          "cs": "",
+          "hu": "",
+          "pl": "",
+          "nl": "",
+          "fr": "",
+          "hr": ""
+        },
+        "price": {
+          "amount": 7,
+          "currency": "EUR"
+        },
+        "imageUrl": "",
+        "portion": "",
+        "variants": [],
+        "modifiers": [],
+        "tags": [
+          "seasonal"
+        ],
+        "allergens": [
+          "allergen:milk",
+          "Egg",
+          "allergen:gluten"
+        ],
+        "allergensConfirmed": false,
+        "availability": "unavailable",
+        "visibility": "visible",
+        "featured": false,
+        "order": 4
+      }
+    ]
+  },
+  "published": {
+    "number": 5,
+    "status": "published",
+    "createdAt": "2026-08-10T07:59:59.005Z",
+    "createdBy": "Владелец ресторана",
+    "note": "Rollback of v2",
+    "snapshot": {
+      "id": "rollback-5",
+      "number": 5,
+      "updatedAt": "2026-08-10T07:59:59.005Z",
+      "updatedBy": "Владелец ресторана",
+      "restaurant": {
+        "name": "Демо-ресторан",
+        "subtitle": "Seasonal kitchen and coffee in the heart of Milan",
+        "description": "Warm all-day café with seasonal ingredients, a thoughtful wine list and a calm place to gather.",
+        "address": "Via della Moscova 18, 20121 Milano, Italy",
+        "phone": "+39 02 9475 2210",
+        "email": "hello@demorestaurant.it",
+        "websiteUrl": "https://demorestaurant.menu",
+        "bookingUrl": "https://demorestaurant.menu/book",
+        "orderUrl": "https://demorestaurant.menu/order",
+        "socials": [
+          {
+            "platform": "Instagram",
+            "url": "https://instagram.com/demorestaurant"
+          }
+        ]
+      },
+      "languages": [
+        {
+          "code": "en",
+          "label": "EN"
+        },
+        {
+          "code": "de",
+          "label": "DE"
+        },
+        {
+          "code": "es",
+          "label": "ES"
+        },
+        {
+          "code": "pt",
+          "label": "PT"
+        },
+        {
+          "code": "it",
+          "label": "IT"
+        },
+        {
+          "code": "cs",
+          "label": "CS"
+        },
+        {
+          "code": "hu",
+          "label": "HU"
+        },
+        {
+          "code": "pl",
+          "label": "PL"
+        },
+        {
+          "code": "nl",
+          "label": "NL"
+        },
+        {
+          "code": "fr",
+          "label": "FR"
+        },
+        {
+          "code": "hr",
+          "label": "HR"
+        }
+      ],
+      "openingHours": [
+        {
+          "id": "mon-fri",
+          "day": "Mon – Fri",
+          "from": "08:00",
+          "to": "22:00",
+          "closed": false
+        },
+        {
+          "id": "sat",
+          "day": "Saturday",
+          "from": "09:00",
+          "to": "23:00",
+          "closed": false
+        },
+        {
+          "id": "sun",
+          "day": "Sunday",
+          "from": "09:00",
+          "to": "18:00",
+          "closed": false
+        }
+      ],
+      "categories": [
+        {
+          "id": "breakfast",
+          "name": {
+            "en": "Breakfast",
+            "it": "Colazione"
+          },
+          "icon": "sun",
+          "order": 1
+        },
+        {
+          "id": "mains",
+          "name": {
+            "en": "Mains",
+            "it": "Piatti principali"
+          },
+          "icon": "plate",
+          "order": 2
+        },
+        {
+          "id": "coffee",
+          "name": {
+            "en": "Coffee & drinks",
+            "it": "Caffè e bevande"
+          },
+          "icon": "cup",
+          "order": 3
+        }
+      ],
+      "menuItems": [
+        {
+          "id": "burrata-toast",
+          "categoryId": "breakfast",
+          "name": {
+            "en": "Burrata toast",
+            "it": "Toast alla burrata"
+          },
+          "description": {
+            "en": "Sourdough, burrata, roasted tomatoes and basil oil.",
+            "it": "Pane a lievitazione naturale, burrata, pomodori arrosto e olio al basilico."
+          },
+          "price": {
+            "amount": 12.5,
+            "currency": "EUR"
+          },
+          "imageUrl": "",
+          "tags": [
+            "vegetarian",
+            "bestseller"
+          ],
+          "allergens": [
+            "Milk",
+            "Gluten"
+          ],
+          "availability": "available",
+          "visibility": "visible",
+          "featured": true,
+          "order": 1
+        },
+        {
+          "id": "miso-salmon",
+          "categoryId": "mains",
+          "name": {
+            "en": "Miso salmon bowl",
+            "it": "Bowl di salmone al miso"
+          },
+          "description": {
+            "en": "Glazed salmon, brown rice, greens and sesame.",
+            "it": "Salmone glassato, riso integrale, verdure e sesamo."
+          },
+          "price": {
+            "amount": 18,
+            "currency": "EUR"
+          },
+          "imageUrl": "",
+          "tags": [
+            "bestseller"
+          ],
+          "allergens": [
+            "Fish",
+            "Sesame"
+          ],
+          "availability": "available",
+          "visibility": "visible",
+          "featured": false,
+          "order": 2
+        },
+        {
+          "id": "iced-latte",
+          "categoryId": "coffee",
+          "name": {
+            "en": "Iced latte",
+            "it": "Latte freddo"
+          },
+          "description": {
+            "en": "Double espresso, milk and house vanilla.",
+            "it": "Doppio espresso, latte e vaniglia della casa."
+          },
+          "price": {
+            "amount": 5.5,
+            "currency": "EUR"
+          },
+          "imageUrl": "",
+          "tags": [
+            "vegetarian"
+          ],
+          "allergens": [
+            "Milk"
+          ],
+          "availability": "available",
+          "visibility": "visible",
+          "featured": false,
+          "order": 3
+        },
+        {
+          "id": "peach-cake",
+          "categoryId": "breakfast",
+          "name": {
+            "en": "Peach olive-oil cake",
+            "it": "Torta alle pesche e olio d’oliva"
+          },
+          "description": {
+            "en": "A seasonal slice with mascarpone cream.",
+            "it": "Una fetta stagionale con crema al mascarpone."
+          },
+          "price": {
+            "amount": 7,
+            "currency": "EUR"
+          },
+          "imageUrl": "",
+          "tags": [
+            "seasonal"
+          ],
+          "allergens": [
+            "Milk",
+            "Egg",
+            "Gluten"
+          ],
+          "availability": "unavailable",
+          "visibility": "visible",
+          "featured": false,
+          "order": 4
+        }
+      ]
+    }
+  },
+  "versions": [
+    {
+      "number": 5,
+      "status": "published",
+      "createdAt": "2026-08-10T07:59:59.005Z",
+      "createdBy": "Владелец ресторана",
+      "note": "Rollback of v2",
+      "snapshot": {
+        "id": "rollback-5",
+        "number": 5,
+        "updatedAt": "2026-08-10T07:59:59.005Z",
+        "updatedBy": "Владелец ресторана",
+        "restaurant": {
+          "name": "Демо-ресторан",
+          "subtitle": "Seasonal kitchen and coffee in the heart of Milan",
+          "description": "Warm all-day café with seasonal ingredients, a thoughtful wine list and a calm place to gather.",
+          "address": "Via della Moscova 18, 20121 Milano, Italy",
+          "phone": "+39 02 9475 2210",
+          "email": "hello@demorestaurant.it",
+          "websiteUrl": "https://demorestaurant.menu",
+          "bookingUrl": "https://demorestaurant.menu/book",
+          "orderUrl": "https://demorestaurant.menu/order",
+          "socials": [
+            {
+              "platform": "Instagram",
+              "url": "https://instagram.com/demorestaurant"
+            }
+          ]
+        },
+        "languages": [
+          {
+            "code": "en",
+            "label": "EN"
+          },
+          {
+            "code": "de",
+            "label": "DE"
+          },
+          {
+            "code": "es",
+            "label": "ES"
+          },
+          {
+            "code": "pt",
+            "label": "PT"
+          },
+          {
+            "code": "it",
+            "label": "IT"
+          },
+          {
+            "code": "cs",
+            "label": "CS"
+          },
+          {
+            "code": "hu",
+            "label": "HU"
+          },
+          {
+            "code": "pl",
+            "label": "PL"
+          },
+          {
+            "code": "nl",
+            "label": "NL"
+          },
+          {
+            "code": "fr",
+            "label": "FR"
+          },
+          {
+            "code": "hr",
+            "label": "HR"
+          }
+        ],
+        "openingHours": [
+          {
+            "id": "mon-fri",
+            "day": "Mon – Fri",
+            "from": "08:00",
+            "to": "22:00",
+            "closed": false
+          },
+          {
+            "id": "sat",
+            "day": "Saturday",
+            "from": "09:00",
+            "to": "23:00",
+            "closed": false
+          },
+          {
+            "id": "sun",
+            "day": "Sunday",
+            "from": "09:00",
+            "to": "18:00",
+            "closed": false
+          }
+        ],
+        "categories": [
+          {
+            "id": "breakfast",
+            "name": {
+              "en": "Breakfast",
+              "it": "Colazione"
+            },
+            "icon": "sun",
+            "order": 1
+          },
+          {
+            "id": "mains",
+            "name": {
+              "en": "Mains",
+              "it": "Piatti principali"
+            },
+            "icon": "plate",
+            "order": 2
+          },
+          {
+            "id": "coffee",
+            "name": {
+              "en": "Coffee & drinks",
+              "it": "Caffè e bevande"
+            },
+            "icon": "cup",
+            "order": 3
+          }
+        ],
+        "menuItems": [
+          {
+            "id": "burrata-toast",
+            "categoryId": "breakfast",
+            "name": {
+              "en": "Burrata toast",
+              "it": "Toast alla burrata"
+            },
+            "description": {
+              "en": "Sourdough, burrata, roasted tomatoes and basil oil.",
+              "it": "Pane a lievitazione naturale, burrata, pomodori arrosto e olio al basilico."
+            },
+            "price": {
+              "amount": 12.5,
+              "currency": "EUR"
+            },
+            "imageUrl": "",
+            "tags": [
+              "vegetarian",
+              "bestseller"
+            ],
+            "allergens": [
+              "Milk",
+              "Gluten"
+            ],
+            "availability": "available",
+            "visibility": "visible",
+            "featured": true,
+            "order": 1
+          },
+          {
+            "id": "miso-salmon",
+            "categoryId": "mains",
+            "name": {
+              "en": "Miso salmon bowl",
+              "it": "Bowl di salmone al miso"
+            },
+            "description": {
+              "en": "Glazed salmon, brown rice, greens and sesame.",
+              "it": "Salmone glassato, riso integrale, verdure e sesamo."
+            },
+            "price": {
+              "amount": 18,
+              "currency": "EUR"
+            },
+            "imageUrl": "",
+            "tags": [
+              "bestseller"
+            ],
+            "allergens": [
+              "Fish",
+              "Sesame"
+            ],
+            "availability": "available",
+            "visibility": "visible",
+            "featured": false,
+            "order": 2
+          },
+          {
+            "id": "iced-latte",
+            "categoryId": "coffee",
+            "name": {
+              "en": "Iced latte",
+              "it": "Latte freddo"
+            },
+            "description": {
+              "en": "Double espresso, milk and house vanilla.",
+              "it": "Doppio espresso, latte e vaniglia della casa."
+            },
+            "price": {
+              "amount": 5.5,
+              "currency": "EUR"
+            },
+            "imageUrl": "",
+            "tags": [
+              "vegetarian"
+            ],
+            "allergens": [
+              "Milk"
+            ],
+            "availability": "available",
+            "visibility": "visible",
+            "featured": false,
+            "order": 3
+          },
+          {
+            "id": "peach-cake",
+            "categoryId": "breakfast",
+            "name": {
+              "en": "Peach olive-oil cake",
+              "it": "Torta alle pesche e olio d’oliva"
+            },
+            "description": {
+              "en": "A seasonal slice with mascarpone cream.",
+              "it": "Una fetta stagionale con crema al mascarpone."
+            },
+            "price": {
+              "amount": 7,
+              "currency": "EUR"
+            },
+            "imageUrl": "",
+            "tags": [
+              "seasonal"
+            ],
+            "allergens": [
+              "Milk",
+              "Egg",
+              "Gluten"
+            ],
+            "availability": "unavailable",
+            "visibility": "visible",
+            "featured": false,
+            "order": 4
+          }
+        ]
+      }
+    },
+    {
+      "number": 3,
+      "status": "published",
+      "createdAt": "2026-08-10T07:59:59.002Z",
+      "createdBy": "Владелец ресторана",
+      "note": "Published menu",
+      "snapshot": {
+        "id": "draft-3",
+        "number": 3,
+        "updatedAt": "2026-08-10T07:59:58.996Z",
+        "updatedBy": "Владелец ресторана",
+        "restaurant": {
+          "name": "Демо-ресторан",
+          "subtitle": "Seasonal kitchen and coffee in the heart of Milan",
+          "description": "Warm all-day caf� with seasonal ingredients, a thoughtful wine list and a calm place to gather.",
+          "logoUrl": "",
+          "address": "Via della Moscova 18, 20121 Milano, Italy",
+          "phone": "+39 02 9475 2210",
+          "email": "hello@demorestaurant.it",
+          "websiteUrl": "https://demorestaurant.menu",
+          "bookingUrl": "https://demorestaurant.menu/book",
+          "orderUrl": "https://demorestaurant.menu/order",
+          "socials": [
+            {
+              "platform": "Instagram",
+              "url": "https://instagram.com/demorestaurant"
+            }
+          ]
+        },
+        "languages": [
+          {
+            "code": "en",
+            "label": "EN"
+          },
+          {
+            "code": "de",
+            "label": "DE"
+          },
+          {
+            "code": "es",
+            "label": "ES"
+          },
+          {
+            "code": "pt",
+            "label": "PT"
+          },
+          {
+            "code": "it",
+            "label": "IT"
+          },
+          {
+            "code": "cs",
+            "label": "CS"
+          },
+          {
+            "code": "hu",
+            "label": "HU"
+          },
+          {
+            "code": "pl",
+            "label": "PL"
+          },
+          {
+            "code": "nl",
+            "label": "NL"
+          },
+          {
+            "code": "fr",
+            "label": "FR"
+          },
+          {
+            "code": "hr",
+            "label": "HR"
+          }
+        ],
+        "menuMode": "regular",
+        "openingHours": [
+          {
+            "id": "mon-fri",
+            "day": "Mon - Fri",
+            "from": "08:00",
+            "to": "22:00",
+            "closed": false
+          },
+          {
+            "id": "sat",
+            "day": "Saturday",
+            "from": "09:00",
+            "to": "23:00",
+            "closed": false
+          },
+          {
+            "id": "sun",
+            "day": "Sunday",
+            "from": "09:00",
+            "to": "18:00",
+            "closed": false
+          }
+        ],
+        "kitchenHours": [],
+        "specialOpeningHours": [],
+        "temporaryClosure": {
+          "closed": false,
+          "resumeDate": "",
+          "message": ""
+        },
+        "categories": [
+          {
+            "id": "breakfast",
+            "name": {
+              "en": "Breakfast",
+              "it": "Colazione"
+            },
+            "icon": "sun",
+            "order": 1
+          },
+          {
+            "id": "mains",
+            "name": {
+              "en": "Mains",
+              "it": "Piatti principali"
+            },
+            "icon": "plate",
+            "order": 2
+          },
+          {
+            "id": "coffee",
+            "name": {
+              "en": "Coffee & drinks",
+              "it": "Caff� e bevande"
+            },
+            "icon": "cup",
+            "order": 3
+          }
+        ],
+        "menuItems": [
+          {
+            "id": "burrata-toast",
+            "categoryId": "breakfast",
+            "name": {
+              "en": "Burrata toast",
+              "it": "Toast alla burrata"
+            },
+            "description": {
+              "en": "Sourdough, burrata, roasted tomatoes and basil oil.",
+              "it": "Pane a lievitazione naturale, burrata, pomodori arrosto e olio al basilico."
+            },
+            "price": {
+              "amount": 12.5,
+              "currency": "EUR"
+            },
+            "imageUrl": "",
+            "portion": "",
+            "variants": [],
+            "modifiers": [],
+            "tags": [
+              "vegetarian",
+              "bestseller"
+            ],
+            "allergens": [
+              "Milk",
+              "Gluten"
+            ],
+            "allergensConfirmed": false,
+            "availability": "available",
+            "visibility": "visible",
+            "featured": true,
+            "order": 1
+          },
+          {
+            "id": "miso-salmon",
+            "categoryId": "mains",
+            "name": {
+              "en": "Miso salmon bowl",
+              "it": "Bowl di salmone al miso"
+            },
+            "description": {
+              "en": "Glazed salmon, brown rice, greens and sesame.",
+              "it": "Salmone glassato, riso integrale, verdure e sesamo."
+            },
+            "price": {
+              "amount": 18,
+              "currency": "EUR"
+            },
+            "imageUrl": "",
+            "portion": "",
+            "variants": [],
+            "modifiers": [],
+            "tags": [
+              "bestseller"
+            ],
+            "allergens": [
+              "Fish",
+              "Sesame"
+            ],
+            "allergensConfirmed": false,
+            "availability": "available",
+            "visibility": "visible",
+            "featured": false,
+            "order": 2
+          },
+          {
+            "id": "iced-latte",
+            "categoryId": "coffee",
+            "name": {
+              "en": "Iced latte",
+              "it": "Latte freddo"
+            },
+            "description": {
+              "en": "Double espresso, milk and house vanilla.",
+              "it": "Doppio espresso, latte e vaniglia della casa."
+            },
+            "price": {
+              "amount": 5.5,
+              "currency": "EUR"
+            },
+            "imageUrl": "",
+            "portion": "",
+            "variants": [],
+            "modifiers": [],
+            "tags": [
+              "vegetarian"
+            ],
+            "allergens": [
+              "Milk"
+            ],
+            "allergensConfirmed": false,
+            "availability": "available",
+            "visibility": "visible",
+            "featured": false,
+            "order": 3
+          },
+          {
+            "id": "peach-cake",
+            "categoryId": "breakfast",
+            "name": {
+              "en": "Peach olive-oil cake",
+              "it": "Torta alle pesche e olio d'oliva"
+            },
+            "description": {
+              "en": "A seasonal slice with mascarpone cream.",
+              "it": "Una fetta stagionale con crema al mascarpone."
+            },
+            "price": {
+              "amount": 7,
+              "currency": "EUR"
+            },
+            "imageUrl": "",
+            "portion": "",
+            "variants": [],
+            "modifiers": [],
+            "tags": [
+              "seasonal"
+            ],
+            "allergens": [
+              "Milk",
+              "Egg",
+              "Gluten"
+            ],
+            "allergensConfirmed": false,
+            "availability": "unavailable",
+            "visibility": "visible",
+            "featured": false,
+            "order": 4
+          }
+        ]
+      }
+    },
+    {
+      "number": 2,
+      "status": "published",
+      "createdAt": "2026-08-03T10:30:00.000Z",
+      "createdBy": "Владелец ресторана",
+      "note": "Published menu",
+      "snapshot": {
+        "id": "draft-3",
+        "number": 2,
+        "updatedAt": "2026-08-10T06:56:38.219Z",
+        "updatedBy": "Владелец ресторана",
+        "restaurant": {
+          "name": "Демо-ресторан",
+          "subtitle": "Seasonal kitchen and coffee in the heart of Milan",
+          "description": "Warm all-day café with seasonal ingredients, a thoughtful wine list and a calm place to gather.",
+          "address": "Via della Moscova 18, 20121 Milano, Italy",
+          "phone": "+39 02 9475 2210",
+          "email": "hello@demorestaurant.it",
+          "websiteUrl": "https://demorestaurant.menu",
+          "bookingUrl": "https://demorestaurant.menu/book",
+          "orderUrl": "https://demorestaurant.menu/order",
+          "socials": [
+            {
+              "platform": "Instagram",
+              "url": "https://instagram.com/demorestaurant"
+            }
+          ]
+        },
+        "languages": [
+          {
+            "code": "en",
+            "label": "EN"
+          },
+          {
+            "code": "de",
+            "label": "DE"
+          },
+          {
+            "code": "es",
+            "label": "ES"
+          },
+          {
+            "code": "pt",
+            "label": "PT"
+          },
+          {
+            "code": "it",
+            "label": "IT"
+          },
+          {
+            "code": "cs",
+            "label": "CS"
+          },
+          {
+            "code": "hu",
+            "label": "HU"
+          },
+          {
+            "code": "pl",
+            "label": "PL"
+          },
+          {
+            "code": "nl",
+            "label": "NL"
+          },
+          {
+            "code": "fr",
+            "label": "FR"
+          },
+          {
+            "code": "hr",
+            "label": "HR"
+          }
+        ],
+        "openingHours": [
+          {
+            "id": "mon-fri",
+            "day": "Mon – Fri",
+            "from": "08:00",
+            "to": "22:00",
+            "closed": false
+          },
+          {
+            "id": "sat",
+            "day": "Saturday",
+            "from": "09:00",
+            "to": "23:00",
+            "closed": false
+          },
+          {
+            "id": "sun",
+            "day": "Sunday",
+            "from": "09:00",
+            "to": "18:00",
+            "closed": false
+          }
+        ],
+        "categories": [
+          {
+            "id": "breakfast",
+            "name": {
+              "en": "Breakfast",
+              "it": "Colazione"
+            },
+            "icon": "sun",
+            "order": 1
+          },
+          {
+            "id": "mains",
+            "name": {
+              "en": "Mains",
+              "it": "Piatti principali"
+            },
+            "icon": "plate",
+            "order": 2
+          },
+          {
+            "id": "coffee",
+            "name": {
+              "en": "Coffee & drinks",
+              "it": "Caffè e bevande"
+            },
+            "icon": "cup",
+            "order": 3
+          }
+        ],
+        "menuItems": [
+          {
+            "id": "burrata-toast",
+            "categoryId": "breakfast",
+            "name": {
+              "en": "Burrata toast",
+              "it": "Toast alla burrata"
+            },
+            "description": {
+              "en": "Sourdough, burrata, roasted tomatoes and basil oil.",
+              "it": "Pane a lievitazione naturale, burrata, pomodori arrosto e olio al basilico."
+            },
+            "price": {
+              "amount": 12.5,
+              "currency": "EUR"
+            },
+            "imageUrl": "",
+            "tags": [
+              "vegetarian",
+              "bestseller"
+            ],
+            "allergens": [
+              "Milk",
+              "Gluten"
+            ],
+            "availability": "available",
+            "visibility": "visible",
+            "featured": true,
+            "order": 1
+          },
+          {
+            "id": "miso-salmon",
+            "categoryId": "mains",
+            "name": {
+              "en": "Miso salmon bowl",
+              "it": "Bowl di salmone al miso"
+            },
+            "description": {
+              "en": "Glazed salmon, brown rice, greens and sesame.",
+              "it": "Salmone glassato, riso integrale, verdure e sesamo."
+            },
+            "price": {
+              "amount": 18,
+              "currency": "EUR"
+            },
+            "imageUrl": "",
+            "tags": [
+              "bestseller"
+            ],
+            "allergens": [
+              "Fish",
+              "Sesame"
+            ],
+            "availability": "available",
+            "visibility": "visible",
+            "featured": false,
+            "order": 2
+          },
+          {
+            "id": "iced-latte",
+            "categoryId": "coffee",
+            "name": {
+              "en": "Iced latte",
+              "it": "Latte freddo"
+            },
+            "description": {
+              "en": "Double espresso, milk and house vanilla.",
+              "it": "Doppio espresso, latte e vaniglia della casa."
+            },
+            "price": {
+              "amount": 5.5,
+              "currency": "EUR"
+            },
+            "imageUrl": "",
+            "tags": [
+              "vegetarian"
+            ],
+            "allergens": [
+              "Milk"
+            ],
+            "availability": "available",
+            "visibility": "visible",
+            "featured": false,
+            "order": 3
+          },
+          {
+            "id": "peach-cake",
+            "categoryId": "breakfast",
+            "name": {
+              "en": "Peach olive-oil cake",
+              "it": "Torta alle pesche e olio d’oliva"
+            },
+            "description": {
+              "en": "A seasonal slice with mascarpone cream.",
+              "it": "Una fetta stagionale con crema al mascarpone."
+            },
+            "price": {
+              "amount": 7,
+              "currency": "EUR"
+            },
+            "imageUrl": "",
+            "tags": [
+              "seasonal"
+            ],
+            "allergens": [
+              "Milk",
+              "Egg",
+              "Gluten"
+            ],
+            "availability": "unavailable",
+            "visibility": "visible",
+            "featured": false,
+            "order": 4
+          }
+        ]
+      }
+    }
+  ],
+  "auditLog": [
+    {
+      "id": "f88a6f25-b2f6-4c0d-8610-7c6e51f0c77e",
+      "at": "2026-08-10T09:13:37.671Z",
+      "actor": "Владелец ресторана",
+      "action": "Сохранила черновик",
+      "target": "Версия v6"
+    },
+    {
+      "id": "be633936-e08a-473a-aafa-c40123b07417",
+      "at": "2026-08-10T09:13:12.159Z",
+      "actor": "Владелец ресторана",
+      "action": "Сохранила черновик",
+      "target": "Версия v6"
+    },
+    {
+      "id": "83258ea8-ecfb-488c-845b-a1db0be1d596",
+      "at": "2026-08-10T09:05:49.678Z",
+      "actor": "Владелец ресторана",
+      "action": "Сохранила черновик",
+      "target": "Версия v6"
+    },
+    {
+      "id": "69c19b22-502d-45c0-8f2a-c3c896fa3596",
+      "at": "2026-08-10T09:05:48.396Z",
+      "actor": "Владелец ресторана",
+      "action": "Сохранила черновик",
+      "target": "Версия v6"
+    },
+    {
+      "id": "20ef9283-0826-4bf9-9d24-38d9144ca09d",
+      "at": "2026-08-10T09:05:44.705Z",
+      "actor": "Владелец ресторана",
+      "action": "Сохранила черновик",
+      "target": "Версия v6"
+    },
+    {
+      "id": "7cbaf1e3-a261-4dd9-b0d3-0a8d129588b2",
+      "at": "2026-08-10T09:05:43.116Z",
+      "actor": "Владелец ресторана",
+      "action": "Сохранила черновик",
+      "target": "Версия v6"
+    },
+    {
+      "id": "41bdd13d-a86a-4283-9e11-b7e03f603222",
+      "at": "2026-08-10T08:59:57.500Z",
+      "actor": "Владелец ресторана",
+      "action": "Сохранила черновик",
+      "target": "Версия v6"
+    },
+    {
+      "id": "eaa835c9-0bda-4fe2-899e-cdffe48b1dd4",
+      "at": "2026-08-10T08:59:56.000Z",
+      "actor": "Владелец ресторана",
+      "action": "Сохранила черновик",
+      "target": "Версия v6"
+    },
+    {
+      "id": "391bd07a-1f0e-4e1d-903e-290df9b9c98f",
+      "at": "2026-08-10T08:59:49.392Z",
+      "actor": "Владелец ресторана",
+      "action": "Сохранила черновик",
+      "target": "Версия v6"
+    },
+    {
+      "id": "56ff2e50-92a6-4313-bcf2-e74b5d804862",
+      "at": "2026-08-10T08:59:45.828Z",
+      "actor": "Владелец ресторана",
+      "action": "Сохранила черновик",
+      "target": "Версия v6"
+    },
+    {
+      "id": "a5a75fd4-e2ee-4614-81bc-662d4579a727",
+      "at": "2026-08-10T08:37:21.353Z",
+      "actor": "Владелец ресторана",
+      "action": "Сохранила черновик",
+      "target": "Версия v6"
+    },
+    {
+      "id": "37fc3665-ff5b-497a-9a23-64e701aa1176",
+      "at": "2026-08-10T08:32:02.678Z",
+      "actor": "Владелец ресторана",
+      "action": "Сохранила черновик",
+      "target": "Версия v6"
+    },
+    {
+      "id": "00dfff6b-08fd-455c-9718-d0f3522cab4f",
+      "at": "2026-08-10T08:13:01.306Z",
+      "actor": "Владелец ресторана",
+      "action": "Сохранила черновик",
+      "target": "Версия v6"
+    },
+    {
+      "id": "9982d189-36e4-4009-b8a0-08b4169ca94e",
+      "at": "2026-08-10T08:12:59.517Z",
+      "actor": "Владелец ресторана",
+      "action": "Сохранила черновик",
+      "target": "Версия v6"
+    },
+    {
+      "id": "b043d123-666d-4fa3-be5a-30d6a034bea2",
+      "at": "2026-08-10T08:12:58.278Z",
+      "actor": "Владелец ресторана",
+      "action": "Сохранила черновик",
+      "target": "Версия v6"
+    },
+    {
+      "id": "83e22a09-ce3d-49d8-9fa1-69d8386f9a2d",
+      "at": "2026-08-10T08:07:09.021Z",
+      "actor": "Владелец ресторана",
+      "action": "Удалилa QR-ссылку",
+      "target": "1bc3803e-21b0-4364-afc9-126a580ecb0f"
+    },
+    {
+      "id": "1a17a5c6-1f02-45d1-aad7-da55a94a4cfd",
+      "at": "2026-08-10T08:07:08.881Z",
+      "actor": "Владелец ресторана",
+      "action": "Создала QR-ссылку",
+      "target": "Final regression"
+    },
+    {
+      "id": "2f4b34a4-3e66-42a1-8838-60f415041148",
+      "at": "2026-08-10T08:04:05.547Z",
+      "actor": "Владелец ресторана",
+      "action": "Сохранила черновик",
+      "target": "Версия v6"
+    },
+    {
+      "id": "f223854e-e1df-4bf5-af20-889cb6ab4e17",
+      "at": "2026-08-10T08:03:54.758Z",
+      "actor": "Владелец ресторана",
+      "action": "Сохранила черновик",
+      "target": "Версия v6"
+    },
+    {
+      "id": "8603df76-5633-4954-9016-c1fa68d8a6d7",
+      "at": "2026-08-10T08:03:27.854Z",
+      "actor": "Владелец ресторана",
+      "action": "Удалилa QR-ссылку",
+      "target": "033a6101-e466-45ec-bea2-405b6deef497"
+    },
+    {
+      "id": "f73b7d54-5386-4b5f-8d93-132349ff98be",
+      "at": "2026-08-10T08:02:04.664Z",
+      "actor": "Владелец ресторана",
+      "action": "Создала QR-ссылку",
+      "target": "Browser test table"
+    },
+    {
+      "id": "7d37ad4e-588a-4cad-b557-13ca50bf5eee",
+      "at": "2026-08-10T08:01:39.840Z",
+      "actor": "Владелец ресторана",
+      "action": "Сохранила черновик",
+      "target": "Версия v6"
+    },
+    {
+      "id": "0c7d7aa7-74ff-4de0-bf18-cbc1f03391ad",
+      "at": "2026-08-10T08:00:12.885Z",
+      "actor": "Владелец ресторана",
+      "action": "Удалилa QR-ссылку",
+      "target": "e48fdd7d-ae61-4d5b-8870-03466b5ffa3f"
+    },
+    {
+      "id": "01e7e357-1c54-4962-99e1-a2938b2212f9",
+      "at": "2026-08-10T07:59:59.008Z",
+      "actor": "Владелец ресторана",
+      "action": "Создала QR-ссылку",
+      "target": "Integration test table"
+    },
+    {
+      "id": "5125cf9f-abbf-41c1-997d-2744895d5ca5",
+      "at": "2026-08-10T07:59:59.005Z",
+      "actor": "Владелец ресторана",
+      "action": "Откатила меню к v2",
+      "target": "Опубликована новая v5"
+    },
+    {
+      "id": "13d30bcf-b1ec-4e90-80a1-53e37a01e947",
+      "at": "2026-08-10T07:59:59.002Z",
+      "actor": "Владелец ресторана",
+      "action": "Опубликовала версию v3",
+      "target": "Публичное меню"
+    },
+    {
+      "id": "9a5126ff-1d95-4b5a-9a8c-67f66b27ce3e",
+      "at": "2026-08-10T07:59:58.996Z",
+      "actor": "Владелец ресторана",
+      "action": "Сохранила черновик",
+      "target": "Версия v3"
+    },
+    {
+      "id": "7f4c4536-7d79-4e38-9278-2e6c6b484872",
+      "at": "2026-08-03T10:30:00.000Z",
+      "actor": "Владелец ресторана",
+      "action": "Опубликовала версию v2",
+      "target": "Меню Демо-ресторан"
+    }
+  ],
+  "qrCodes": []
+}

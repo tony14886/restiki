@@ -1,0 +1,731 @@
+<!--
+  DLE static page fragment for Instagram traffic.
+  Paste into the DLE page in HTML/source mode.
+  Optional: upload the Instagram creative to /uploads/posts/2026-06/kreo22.png.
+  If it is not uploaded, the hero falls back to an existing project image.
+-->
+
+<style>
+.lp-remap {
+  max-width: 980px;
+  margin: 0 auto;
+  color: #111;
+  font-family: Tahoma, Arial, Verdana, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  overflow: hidden;
+}
+
+.lp-remap * {
+  box-sizing: border-box;
+}
+
+.lp-remap a {
+  color: #000;
+}
+
+.lp-remap img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.lp-remap .heading3 {
+  margin-bottom: 14px;
+}
+
+.lp-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(260px, .92fr);
+  gap: 18px;
+  align-items: stretch;
+  margin: 8px 0 24px;
+}
+
+.lp-hero__copy,
+.lp-hero__media,
+.lp-panel {
+  background: #fff;
+  border: 1px solid rgba(0,0,0,.10);
+  border-radius: 14px;
+  box-shadow: 0 10px 28px rgba(0,0,0,.07);
+}
+
+.lp-hero__copy {
+  padding: 20px;
+  border-top: 4px solid #ffb400;
+}
+
+.lp-kicker {
+  display: inline-block;
+  margin: 0 0 10px;
+  padding: 5px 9px;
+  background: #fff8d1;
+  border: 1px solid #ffd700;
+  border-radius: 10px;
+  color: #6b4a12;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.lp-title {
+  margin: 0 0 12px;
+  color: #ffb400;
+  font-size: 31px;
+  line-height: 1.12;
+  font-weight: 700;
+}
+
+.lp-title span {
+  display: block;
+  color: #111;
+}
+
+.lp-lead {
+  margin: 0 0 16px;
+  color: #222;
+  font-size: 16px;
+  line-height: 1.45;
+}
+
+.lp-benefits {
+  display: grid;
+  gap: 8px;
+  margin: 0 0 16px;
+  padding: 0;
+  list-style: none;
+}
+
+.lp-benefits li {
+  position: relative;
+  padding: 9px 10px 9px 34px;
+  background: #fff8d1;
+  border-radius: 8px;
+  color: #111;
+  font-weight: 700;
+}
+
+.lp-benefits li:before {
+  content: "";
+  position: absolute;
+  left: 12px;
+  top: 15px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #ffb400;
+}
+
+.lp-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 16px 0 0;
+}
+
+.lp-btn,
+.lp-btn:visited,
+.lp-btn:hover {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  padding: 0 18px;
+  border: 0;
+  border-radius: 10px;
+  background: #ffb400;
+  color: #000;
+  text-decoration: none !important;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.1;
+  box-shadow: 0 7px 18px rgba(0,0,0,.16);
+  cursor: pointer;
+}
+
+.lp-btn--dark,
+.lp-btn--dark:visited,
+.lp-btn--dark:hover {
+  background: #111;
+  color: #fff;
+}
+
+.lp-btn--light,
+.lp-btn--light:visited,
+.lp-btn--light:hover {
+  background: #fff;
+  color: #111;
+  border: 1px solid #ddd;
+  box-shadow: 0 5px 14px rgba(0,0,0,.08);
+}
+
+.lp-note {
+  margin: 12px 0 0;
+  color: #666;
+  font-size: 13px;
+}
+
+.lp-hero__media {
+  position: relative;
+  overflow: hidden;
+  min-height: 320px;
+  display: grid;
+  align-content: stretch;
+  background: #f8f8f8;
+}
+
+.lp-hero__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.lp-hero__stamp {
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: 14px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: rgba(17,17,17,.88);
+  color: #fff;
+  font-weight: 700;
+}
+
+.lp-hero__stamp span {
+  color: #ffb400;
+}
+
+.lp-panel {
+  padding: 18px;
+  margin: 22px 0;
+}
+
+.lp-panel h2,
+.lp-panel h3 {
+  margin: 0 0 12px;
+  color: #111;
+  font-size: 20px;
+  line-height: 1.25;
+  font-weight: 700;
+}
+
+.lp-panel p {
+  margin: 0 0 10px;
+}
+
+.lp-section-title {
+  margin: 34px 0 14px;
+  color: #111;
+  font-size: 20px;
+  line-height: 1.25;
+  font-weight: 700;
+}
+
+.lp-section-note {
+  margin: -5px 0 14px;
+  color: #555;
+}
+
+.lp-scenario-img {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+.lp-checker {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 10px;
+  align-items: end;
+}
+
+.lp-checker label {
+  display: block;
+  color: #333;
+  font-weight: 700;
+}
+
+.lp-checker select {
+  width: 100%;
+  height: 42px;
+  margin-top: 6px;
+  padding: 0 10px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background: #fff;
+  color: #111;
+  font-family: Tahoma, Arial, Verdana, sans-serif;
+}
+
+.lp-result {
+  margin-top: 14px;
+  padding: 13px 14px;
+  border: 1px dashed #e6e6e6;
+  border-radius: 10px;
+  background: #fffef6;
+  color: #222;
+}
+
+.lp-result b {
+  color: #111;
+}
+
+.lp-contact-line {
+  margin: 24px 0;
+  text-align: center;
+}
+
+.lp-phone,
+.lp-phone:visited {
+  display: inline-block;
+  color: #000;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 21px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.lp-doc-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.lp-doc {
+  border: 1px solid #eee;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.lp-doc img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  background: #f8f8f8;
+}
+
+.lp-doc figcaption {
+  padding: 10px;
+  color: #222;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.lp-final {
+  border: 4px solid #f7bb05;
+  border-radius: 14px;
+  padding: 18px;
+  margin: 34px 0 22px;
+  background: #fff;
+}
+
+.lp-final__row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 16px;
+  align-items: center;
+}
+
+.lp-final h2 {
+  margin: 0 0 8px;
+  color: #111;
+  font-size: 23px;
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+.lp-final p {
+  margin: 0;
+  color: #333;
+}
+
+.lp-sticky {
+  position: sticky;
+  z-index: 30;
+  bottom: 8px;
+  display: none;
+  gap: 8px;
+  padding: 8px;
+  margin: 18px 0 0;
+  background: rgba(255,255,255,.96);
+  border: 1px solid #eee;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,.16);
+}
+
+.lp-sticky .lp-btn {
+  flex: 1 1 0;
+  min-height: 44px;
+  padding: 0 10px;
+  font-size: 14px;
+}
+
+.lp-hidden-trigger {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+
+@media screen and (max-width: 780px) {
+  .lp-hero,
+  .lp-checker,
+  .lp-final__row,
+  .lp-doc-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .lp-hero__copy,
+  .lp-panel,
+  .lp-final {
+    padding: 16px;
+  }
+
+  .lp-title {
+    font-size: 25px;
+  }
+
+  .lp-lead {
+    font-size: 15px;
+  }
+
+  .lp-hero__media {
+    min-height: 260px;
+  }
+
+  .lp-actions .lp-btn,
+  .lp-final .lp-btn {
+    width: 100%;
+  }
+
+  .lp-sticky {
+    display: flex;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .lp-remap {
+    font-size: 14px;
+  }
+
+  .lp-title {
+    font-size: 23px;
+  }
+
+  .lp-hero__media {
+    min-height: 220px;
+  }
+
+  .lp-btn {
+    min-height: 44px;
+    padding: 0 12px;
+  }
+}
+</style>
+
+<div class="lp-remap" id="instagram-pereplanirovka">
+  <section class="lp-hero">
+    <div class="lp-hero__copy">
+      <div class="lp-kicker">Перепланировка под ключ в Минске</div>
+      <h1 class="lp-title">Проверьте, можно ли согласовать вашу перепланировку <span>до начала ремонта</span></h1>
+      <p class="lp-lead">Пришлите фото техпаспорта и коротко опишите, что хотите изменить. Инженер скажет сценарий, сроки и ориентировочную стоимость.</p>
+
+      <ul class="lp-benefits">
+        <li>Один контакт вместо исполкома, БТИ, проектировщика и технадзора</li>
+        <li>Проект от 3 рабочих дней, документы подрядчика и технадзора от 1 дня</li>
+        <li>Оплата по факту, без скрытых доплат по ходу оформления</li>
+      </ul>
+
+      <div class="lp-actions">
+        <span data-uf-open="/engine/ajax/uniform/uniform.php" data-uf-settings='{"formConfig": "callback"}' class="uf-btn lp-btn" onclick="lpLead('callback_hero')">Проверить мой случай</span>
+        <a class="lp-btn lp-btn--dark" href="tel:+375296767830" onclick="lpLead('phone_hero')">Позвонить</a>
+        <a class="lp-btn lp-btn--light" href="https://t.me/Tonnnnny" rel="nofollow noopener" onclick="lpLead('telegram_hero')">Telegram</a>
+      </div>
+
+      <p class="lp-note">Для первой оценки обычно достаточно фото техпаспорта и 1-2 предложений о планируемых изменениях.</p>
+    </div>
+
+    <div class="lp-hero__media">
+      <img src="/uploads/posts/2026-06/kreo22.png" alt="Перепланировка под ключ в Минске" loading="eager" onerror="this.onerror=null;this.src='/uploads/posts/2025-09/zamm.webp';">
+      <div class="lp-hero__stamp"><span>Под ключ:</span> проект, подрядчик, технадзор, БТИ и ввод в эксплуатацию</div>
+    </div>
+  </section>
+
+  <div class="trust3" style="margin-bottom:26px;">
+    <div class="trust3__item">
+      <div class="trust3__icon"><img src="/uploads/posts/2025-12/1766399193_chasy.png" alt="Опыт в перепланировках"></div>
+      <div class="trust3__title">Опыт</div>
+      <div class="trust3__text">На рынке с<br>2018 года</div>
+    </div>
+    <div class="trust3__item">
+      <div class="trust3__icon"><img src="/uploads/posts/2025-12/1766399217_listok1.png" alt="Экспертиза в перепланировках"></div>
+      <div class="trust3__title">Экспертиза</div>
+      <div class="trust3__text">Реализовано<br>2300+ объектов</div>
+    </div>
+    <div class="trust3__item">
+      <div class="trust3__icon"><img src="/uploads/posts/2025-12/1766399263_bantikk.png" alt="Лицензии для перепланировки"></div>
+      <div class="trust3__title">Лицензии</div>
+      <div class="trust3__text">Есть все<br>разрешения</div>
+    </div>
+  </div>
+
+  <h2 class="lp-section-title">Выберите вашу ситуацию</h2>
+  <p class="lp-section-note">Так человеку из Instagram проще узнать себя и нажать на заявку, а не уходить читать длинную статью.</p>
+
+  <div class="service-chooser">
+    <div class="service-grid">
+      <a class="service-card" href="#lp-check">
+        <img class="lp-scenario-img" src="/uploads/posts/2025-09/1758222956_1-1-removebg-preview.png" alt="Планирую перепланировку">
+        <div class="service-title">Планирую ремонт</div>
+        <div class="service-text">Проверим, можно ли согласовать задумку до начала работ.</div>
+        <div class="service-link">Проверить вариант</div>
+      </a>
+      <a class="service-card" href="#lp-check">
+        <img class="lp-scenario-img" src="/uploads/posts/2025-09/1758223024_33-removebg-preview.png" alt="Уже сделали перепланировку">
+        <div class="service-title">Уже сделали</div>
+        <div class="service-text">Оценим, можно ли узаконить без возврата к старой планировке.</div>
+        <div class="service-link">Разобрать случай</div>
+      </a>
+      <a class="service-card" href="#lp-check">
+        <img class="lp-scenario-img" src="/uploads/posts/2025-09/1758223015_2-2-removebg-preview.png" alt="Санузел">
+        <div class="service-title">Санузел</div>
+        <div class="service-text">Объединение, расширение, гидроизоляция, проект.</div>
+        <div class="service-link">от 350 BYN</div>
+      </a>
+      <a class="service-card" href="#lp-check">
+        <img class="lp-scenario-img" src="/uploads/posts/2025-09/1758223014_66-removebg-preview.png" alt="Кухня и комната">
+        <div class="service-title">Кухня + комната</div>
+        <div class="service-text">Проверим газ, несущие стены и допустимость объединения.</div>
+        <div class="service-link">индивидуально</div>
+      </a>
+    </div>
+  </div>
+
+  <section class="lp-panel" id="lp-check">
+    <h2>Быстрая проверка перед заявкой</h2>
+    <div class="lp-checker">
+      <label for="lp-case">Что хотите сделать?
+        <select id="lp-case">
+          <option value="plan">Планирую перепланировку, хочу понять порядок и цену</option>
+          <option value="done">Перепланировка уже выполнена без оформления</option>
+          <option value="wc">Объединить или расширить санузел</option>
+          <option value="kitchen">Объединить кухню с комнатой</option>
+          <option value="radiator">Перенести или заменить батарею</option>
+          <option value="wall">Сделать проем или убрать стену</option>
+        </select>
+      </label>
+      <button class="lp-btn" type="button" id="lp-case-run">Показать путь</button>
+    </div>
+    <div class="lp-result" id="lp-case-result"><b>Выберите сценарий и нажмите кнопку.</b> Мы покажем, что обычно нужно подготовить.</div>
+    <div class="lp-actions">
+      <span data-uf-open="/engine/ajax/uniform/uniform.php" data-uf-settings='{"formConfig": "callback"}' class="uf-btn lp-btn" onclick="lpLead('callback_checker')">Получить точный расчет</span>
+      <a class="lp-btn lp-btn--light" href="viber://chat?number=+375296767830" onclick="lpLead('viber_checker')">Написать в Viber</a>
+    </div>
+  </section>
+
+  <div class="remote-work-block">
+    <h2 class="remote-work-title">Начните без визита в офис</h2>
+    <p class="remote-work-text">Можно прислать фото документов в мессенджер. Инженер посмотрит техпаспорт, задаст уточняющие вопросы и скажет, какой сценарий оформления подходит.</p>
+    <p class="remote-work-accent">Оплата по факту</p>
+  </div>
+
+  <div class="lp-contact-line">
+    <a class="lp-phone" href="tel:+375296767830" onclick="lpLead('phone_middle')">+375(29) 67-67-830</a>
+    <div class="contact-hint">Нажмите, чтобы позвонить или написать нам</div>
+    <div class="contact-icons">
+      <a class="contact-btn" href="https://t.me/Tonnnnny" rel="nofollow noopener" onclick="lpLead('telegram_middle')"><img src="/uploads/posts/2025-09/1758292584_1234wert.png" alt="Telegram"></a>
+      <a class="contact-btn" href="viber://chat?number=+375296767830" onclick="lpLead('viber_middle')"><img src="/uploads/posts/2025-09/1758292552_vibw.png" alt="Viber"></a>
+      <a class="contact-btn" href="https://www.instagram.com/pereplanirovvka/" rel="nofollow noopener" onclick="lpLead('instagram_middle')"><img src="/uploads/posts/2025-09/Instaon1.webp" alt="Instagram"></a>
+    </div>
+  </div>
+
+  <div class="form" style="margin-bottom:35px;margin-top:35px;">
+    <div class="text">БЕСПЛАТНО ПРОВЕРИМ ВАШУ ПЕРЕПЛАНИРОВКУ</div>
+    <div class="button"><span data-uf-open="/engine/ajax/uniform/uniform.php" data-uf-settings='{"formConfig": "callback"}' class="uf-btn" onclick="lpLead('callback_form_top')"> ОСТАВИТЬ ЗАЯВКУ </span></div>
+  </div>
+
+  <section class="lp-panel">
+    <h2>Что вы получаете: один контакт вместо марафона по инстанциям</h2>
+    <p>Классический путь согласования выглядит пугающе: исполком, проектная организация, подрядчик, технадзор, экспертиза, БТИ. Минимум 5 организаций, в каждой свои требования и графики приема.</p>
+    <p><b>Наш формат:</b> вы работаете с одним инженером от консультации до получения акта ввода в эксплуатацию. Остальные инстанции — наша зона ответственности.</p>
+  </section>
+
+  <div class="price-cards">
+    <h2><span>Ориентиры по стоимости</span></h2>
+    <div class="pc-grid">
+      <div class="pc-card">
+        <h3>Базовый проект</h3>
+        <div class="pc-row"><div class="pc-name">Проект перепланировки</div><div class="pc-price">350 руб</div></div>
+        <div class="pc-row"><div class="pc-name">Срок подготовки</div><div class="pc-price">от 3 дней</div></div>
+      </div>
+      <div class="pc-card">
+        <h3>Документы для работ</h3>
+        <div class="pc-row"><div class="pc-name">Подрядчик, договор, акты</div><div class="pc-price">250 руб</div></div>
+        <div class="pc-row"><div class="pc-name">Технадзор с аттестацией</div><div class="pc-price">170 руб</div></div>
+      </div>
+      <div class="pc-card">
+        <h3>Узаконивание</h3>
+        <div class="pc-row"><div class="pc-name">Если уже выполнено</div><div class="pc-price">после оценки</div></div>
+        <div class="pc-row"><div class="pc-name">Техзаключение</div><div class="pc-price">индивидуально</div></div>
+      </div>
+      <div class="pc-card">
+        <h3>Сложные случаи</h3>
+        <div class="pc-row"><div class="pc-name">Несущие стены, кухня, батареи</div><div class="pc-price">расчет</div></div>
+        <div class="pc-row"><div class="pc-name">Скажем после техпаспорта</div><div class="pc-price">онлайн</div></div>
+      </div>
+    </div>
+  </div>
+
+  <section class="workflow">
+    <div class="workflow__box">
+      <div class="workflow__title">Как работаем после заявки</div>
+      <div class="workflow__list">
+        <div class="workflow__step">
+          <div class="workflow__num">01</div>
+          <div class="workflow__content">
+            <div class="workflow__step-title">Вы присылаете документы</div>
+            <div class="workflow__text">Фото техпаспорта, что хотите изменить, и адрес/район Минска.</div>
+          </div>
+        </div>
+        <div class="workflow__line"></div>
+        <div class="workflow__step">
+          <div class="workflow__num">02</div>
+          <div class="workflow__content">
+            <div class="workflow__step-title">Инженер проверяет вариант</div>
+            <div class="workflow__text">Говорим, можно ли согласовать, какие есть ограничения и какой путь дешевле.</div>
+          </div>
+        </div>
+        <div class="workflow__line"></div>
+        <div class="workflow__step">
+          <div class="workflow__num">03</div>
+          <div class="workflow__content">
+            <div class="workflow__step-title">Готовим проект и документы</div>
+            <div class="workflow__text">Проект, договор, акт на скрытые работы, документы подрядчика и технадзора.</div>
+          </div>
+        </div>
+        <div class="workflow__line"></div>
+        <div class="workflow__step">
+          <div class="workflow__num">04</div>
+          <div class="workflow__content">
+            <div class="workflow__step-title">Доводим до результата</div>
+            <div class="workflow__text">Согласование, БТИ, акт ввода в эксплуатацию, новый техпаспорт.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <h2 class="lp-section-title">Реальные документы и результат</h2>
+  <p class="lp-section-note">На посадочной после рекламы важны не обещания, а доказательство, что вы доводите процедуру до официальных документов.</p>
+  <div class="lp-doc-grid">
+    <figure class="lp-doc">
+      <img src="/uploads/posts/2026-01/1769253712_vypiska-reshenija21211.webp" alt="Выписка из решения по перепланировке">
+      <figcaption>Получаем разрешение исполкома</figcaption>
+    </figure>
+    <figure class="lp-doc">
+      <img src="/uploads/posts/2026-01/1768924215_poslll.webp" alt="Согласованный проект перепланировки">
+      <figcaption>Согласуем проект перепланировки</figcaption>
+    </figure>
+    <figure class="lp-doc">
+      <img src="/uploads/posts/2026-01/1769253175_akt-vvoda-novvik.webp" alt="Акт ввода квартиры в эксплуатацию">
+      <figcaption>Доводим до акта ввода и нового техпаспорта</figcaption>
+    </figure>
+  </div>
+
+  <div class="docs-box">
+    <h2 class="docs-box__title">Что отправить для первой консультации</h2>
+    <p class="docs-box__lead">Этого достаточно, чтобы быстро понять сценарий и не тратить время на лишние звонки.</p>
+    <ul class="checklist">
+      <li>фото техпаспорта квартиры;</li>
+      <li>что хотите изменить: санузел, кухня, стены, батареи, проемы;</li>
+      <li>если работы уже сделаны — 2-3 фото фактической планировки;</li>
+      <li>район Минска или адрес дома;</li>
+      <li>удобный способ связи: звонок, Telegram или Viber.</li>
+    </ul>
+  </div>
+
+  <div class="faq-block">
+    <h3 class="faq-title">Часто задаваемые вопросы</h3>
+    <details class="faq-item" open>
+      <summary>Можно начать без визита в офис?</summary>
+      <div class="faq-answer">Да. Пришлите фото документов в Telegram или Viber. Предварительную оценку дадим удаленно.</div>
+    </details>
+    <details class="faq-item">
+      <summary>Если перепланировка уже сделана, вы поможете?</summary>
+      <div class="faq-answer">Да. Сначала проверим, можно ли узаконить выполненные изменения и какие документы нужны. Если есть критичные нарушения, скажем сразу.</div>
+    </details>
+    <details class="faq-item">
+      <summary>Можно ли узнать точную цену сразу?</summary>
+      <div class="faq-answer">Точную цену называем после техпаспорта и описания изменений. До этого можно дать только ориентир, потому что состав документов зависит от сценария.</div>
+    </details>
+    <details class="faq-item">
+      <summary>Когда производится оплата?</summary>
+      <div class="faq-answer">Основной принцип — оплата по факту и по мере выполнения работ. Состав услуги и стоимость проговариваются до старта.</div>
+    </details>
+  </div>
+
+  <section class="lp-final" id="lp-final">
+    <div class="lp-final__row">
+      <div>
+        <h2>Получите понятный план по вашей квартире</h2>
+        <p>Оставьте заявку или напишите в мессенджер. Инженер скажет, что можно согласовать, какие документы нужны и сколько это будет стоить.</p>
+      </div>
+      <div class="lp-actions">
+        <span data-uf-open="/engine/ajax/uniform/uniform.php" data-uf-settings='{"formConfig": "callback"}' class="uf-btn lp-btn" onclick="lpLead('callback_final')">Оставить заявку</span>
+        <a class="lp-btn lp-btn--dark" href="tel:+375296767830" onclick="lpLead('phone_final')">Позвонить</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="lp-sticky" aria-label="Быстрые действия">
+    <a class="lp-btn lp-btn--dark" href="tel:+375296767830" onclick="lpLead('phone_sticky')">Позвонить</a>
+    <span data-uf-open="/engine/ajax/uniform/uniform.php" data-uf-settings='{"formConfig": "callback"}' class="uf-btn lp-btn" onclick="lpLead('callback_sticky')">Заявка</span>
+  </div>
+</div>
+
+<script>
+(function(){
+  var result = document.getElementById('lp-case-result');
+  var select = document.getElementById('lp-case');
+  var run = document.getElementById('lp-case-run');
+
+  var text = {
+    plan: '<b>Лучший старт:</b> пришлите техпаспорт и опишите желаемые изменения. Мы скажем, нужен ли проект, подрядчик, технадзор и какие сроки по вашему району.',
+    done: '<b>Если уже сделали:</b> сначала проверяем, можно ли узаконить без переделок. Нужны фото техпаспорта, фото фактических изменений и описание работ.',
+    wc: '<b>Санузел:</b> смотрим, за счет чего расширяется ванная/туалет, нужна ли гидроизоляция, проект и документы подрядчика.',
+    kitchen: '<b>Кухня + комната:</b> важно проверить газ и несущие стены. Иногда возможно только с дверью или через отдельный проект.',
+    radiator: '<b>Батарея:</b> перенос и изменение мощности требуют проекта и согласования. Вынос на лоджию запрещен.',
+    wall: '<b>Стены и проемы:</b> сначала определяем, несущая ли стена. Для несущих нужны расчет усиления, проект и экспертиза.'
+  };
+
+  function showCase(){
+    if (!result || !select) return;
+    result.innerHTML = text[select.value] || text.plan;
+    lpLead('checker_' + select.value);
+  }
+
+  if (run) run.addEventListener('click', showCase);
+})();
+
+function lpLead(label) {
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({ event: 'lead_click', lead_source: 'instagram_landing', lead_action: label });
+
+  if (typeof gtag === 'function') {
+    gtag('event', 'lead_click', { event_category: 'landing', event_label: label });
+  }
+
+  if (typeof ym === 'function') {
+    ym(35708405, 'reachGoal', 'lead_click', { action: label });
+  } else if (window.yaCounter35708405 && typeof window.yaCounter35708405.reachGoal === 'function') {
+    window.yaCounter35708405.reachGoal('lead_click', { action: label });
+  }
+}
+</script>

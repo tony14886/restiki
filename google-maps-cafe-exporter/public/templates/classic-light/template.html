@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Reusable Classic Light restaurant menu template" />
+    <title>Classic Light Restaurant Menu</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./template.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#menu-content" data-slot="ui.skipToMenu"></a>
+    <div class="site" data-template="classic-light" data-state="loading">
+      <header class="site-header" data-component="header"></header>
+      <main class="site-main-area">
+        <div class="site-main" id="menu-content">
+          <nav class="category-navigation" aria-label="Menu categories" data-component="category-navigation"></nav>
+          <section class="menu-section" data-component="menu-section"></section>
+          <section class="location-section" data-component="location-section"></section>
+        </div>
+      </main>
+      <footer class="site-footer" data-component="footer"></footer>
+      <div class="legal-bar" data-component="legal-bar"></div>
+    </div>
+
+    <!-- For a single-file export, replace this empty object with the content JSON. -->
+    <script id="template-content" type="application/json">{}</script>
+    <script type="module" src="./template.js"></script>
+  </body>
+</html>

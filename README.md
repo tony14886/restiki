@@ -1,3 +1,0 @@
-# Restiki
-
-Initial repository bootstrap.

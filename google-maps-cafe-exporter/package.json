@@ -1,0 +1,25 @@
+{
+  "name": "google-maps-cafe-exporter",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Локальный экспорт кафе из интерфейса Google Maps",
+  "scripts": {
+    "start": "node server.mjs",
+    "dev": "node --watch server.mjs",
+    "test:reviews": "node scripts/review-smoke.mjs",
+    "test:ops": "node scripts/ops-smoke.mjs",
+    "test:pilot": "node scripts/pilot-e2e.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "cheerio": "^1.1.2",
+    "express": "^5.1.0",
+    "pdf-parse": "^2.4.5",
+    "playwright": "^1.55.0",
+    "qrcode": "^1.5.4",
+    "tesseract.js": "^6.0.1"
+  }
+}

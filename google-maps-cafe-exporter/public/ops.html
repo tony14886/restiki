@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light" />
+    <title>Menu-on — панель владельца</title>
+    <link rel="stylesheet" href="/ops.css?v=20260811-2" />
+  </head>
+  <body>
+    <main class="login-view" id="login-view" hidden>
+      <section class="login-card" aria-labelledby="login-title">
+        <span class="brand-mark">M</span>
+        <p class="eyebrow">MENU-ON · ОПЕРАТОР</p>
+        <h1 id="login-title">Панель владельца</h1>
+        <p>Управляйте всеми демо-лендингами, сроками и статусами из одного места.</p>
+        <form id="login-form" novalidate>
+          <label>E-mail<input id="login-email" type="email" autocomplete="username" required /></label>
+          <label>Пароль<input id="login-password" type="password" autocomplete="current-password" required /></label>
+          <button class="button primary" type="submit">Войти в панель</button>
+          <p class="form-message" id="login-message" role="alert"></p>
+        </form>
+      </section>
+    </main>
+
+    <main class="app" id="app" hidden>
+      <header class="topbar">
+        <a class="brand" href="/ops.html" aria-label="Menu-on, панель владельца"><span class="brand-mark">M</span><span><strong>Menu-on</strong><small>Панель владельца</small></span></a>
+        <div class="topbar-actions"><span class="operator-email" id="operator-email"></span><button class="button secondary" id="refresh-button" type="button">Обновить</button><button class="button secondary" id="logout-button" type="button">Выйти</button></div>
+      </header>
+
+      <section class="workspace">
+        <div class="heading">
+          <div><p class="eyebrow">ОПЕРАЦИОННЫЙ КОНТУР</p><h1>Лендинги кафе</h1><p>Реестр всех опубликованных демо и рабочих меню.</p></div>
+          <p class="updated" id="updated-at" aria-live="polite"></p>
+        </div>
+
+        <section class="metrics" aria-label="Сводка по лендингам">
+          <article><span>Всего</span><strong id="metric-total">0</strong></article>
+          <article><span>Активны</span><strong id="metric-active">0</strong></article>
+          <article><span>Истекли / остановлены</span><strong id="metric-attention">0</strong></article>
+        </section>
+
+        <section class="registry surface-card" aria-labelledby="registry-title">
+          <div class="registry-heading"><div><p class="eyebrow">РЕЕСТР</p><h2 id="registry-title">Опубликованные сайты</h2></div><div class="filters"><label class="visually-hidden" for="site-search">Поиск</label><input id="site-search" type="search" placeholder="Найти кафе или домен" autocomplete="off" /><label class="visually-hidden" for="status-filter">Статус</label><select id="status-filter"><option value="all">Все статусы</option><option value="active">Активные</option><option value="paused">Остановленные</option><option value="expired">Истёкшие</option><option value="archived">Удалённые</option></select></div></div>
+          <p class="registry-message" id="registry-message" role="status"></p>
+          <div class="table-wrap"><table><thead><tr><th>Кафе и адрес</th><th>Статус</th><th>Создан</th><th>Срок демо</th><th>Версия</th><th>Доступ к админке</th><th>Управление</th></tr></thead><tbody id="sites-table"></tbody></table></div>
+        </section>
+      </section>
+    </main>
+    <script type="module" src="/ops.js?v=20260811-2"></script>
+  </body>
+</html>

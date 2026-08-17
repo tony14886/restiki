@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light" />
+    <title>Menu-on — кабинет ресторана</title>
+    <link rel="stylesheet" href="/admin.css?v=20260811-12" />
+  </head>
+  <body>
+    <div class="admin-shell">
+      <aside class="sidebar" aria-label="Основная навигация">
+        <a class="brand" id="restaurant-brand" href="/admin.html" aria-label="Кабинет ресторана">
+          <span class="brand-mark" id="restaurant-brand-mark">R</span>
+          <span><strong id="restaurant-brand-name">Ресторан</strong><small id="restaurant-brand-subtitle">Управление меню</small></span>
+        </a>
+
+        <nav class="sidebar-nav">
+          <button type="button" data-view="subscription" class="subscription-nav"><span>✦</span>Подключение</button>
+          <button type="button" data-view="menu" class="is-active"><span>☷</span>Меню</button>
+          <button type="button" data-view="hours"><span>◷</span>Часы работы</button>
+          <button type="button" data-view="contacts"><span>⌁</span>Контакты</button>
+          <button type="button" data-view="analytics"><span>◌</span>Аналитика</button>
+          <button type="button" data-view="domains"><span>⌘</span>Домены и QR</button>
+        </nav>
+
+        <div class="sidebar-bottom">
+          <button type="button" class="help-link" data-action="show-help">? Помощь и поддержка</button>
+          <div class="account">
+            <span class="avatar" id="user-avatar">АС</span>
+            <span><strong id="user-name">Владелец кабинета</strong><small id="user-role">Владелец</small></span>
+            <button type="button" class="more-button" data-action="logout" aria-label="Выйти из админки">•••</button>
+          </div>
+        </div>
+      </aside>
+
+      <main class="main-area">
+        <header class="topbar">
+          <div class="topbar-actions">
+            <label class="interface-language"><span class="interface-language-label">Язык интерфейса</span><select id="interface-language" aria-label="Язык интерфейса"><option value="ru">Русский</option><option value="en">English</option><option value="de">Deutsch</option><option value="es">Español</option><option value="pt">Português</option><option value="it">Italiano</option><option value="cs">Čeština</option><option value="hu">Magyar</option><option value="pl">Polski</option><option value="nl">Nederlands</option><option value="fr">Français</option><option value="hr">Hrvatski</option></select></label>
+            <span class="saved-state" id="saved-state" aria-live="polite"><i></i>Черновик сохранён</span>
+            <a class="button button-secondary" href="/menu" target="_blank" rel="noreferrer">Посмотреть сайт-меню <span>↗</span></a>
+            <button class="button button-primary" type="button" data-action="publish">Опубликовать</button>
+            <button class="button button-subscription-cta" type="button" data-action="open-subscription">Оформить подписку <span>→</span></button>
+          </div>
+        </header>
+
+        <section class="workspace" id="workspace" aria-live="polite">
+          <section class="view menu-view" data-view-panel="menu">
+            <div class="page-heading menu-heading">
+              <div><p class="eyebrow">Меню · черновик v<span data-draft-number>3</span></p><h1>Меню ресторана</h1><p>Меняйте позиции, цены и доступность. Preview обновляется сразу.</p></div>
+              <div class="heading-actions"><button class="button button-secondary" type="button" data-action="manage-categories">Категории</button><button class="button button-secondary" type="button" data-action="add-category">+ Категория</button><button class="button button-primary" type="button" data-action="add-item">+ Позиция</button></div>
+            </div>
+
+            <div class="editor-layout">
+              <section class="menu-list-panel surface-card">
+                <div class="menu-list-toolbar"><label class="search"><span>⌕</span><input id="menu-search" type="search" placeholder="Найти блюдо" autocomplete="off" /></label><button type="button" class="icon-button" data-action="add-item" aria-label="Добавить позицию">+</button></div>
+                <div class="category-pills" id="category-pills" aria-label="Категории меню"></div>
+                <div class="menu-item-list" id="menu-item-list"></div>
+              </section>
+
+              <section class="item-editor surface-card" id="item-editor">
+                <div class="empty-editor" id="empty-editor"><span>☷</span><h2>Выберите позицию</h2><p>Откройте блюдо из списка или добавьте новое.</p></div>
+                <form id="item-form" hidden>
+                  <div class="editor-title-row"><div><p class="eyebrow">Редактирование</p><h2 id="editing-item-label">Позиция меню</h2></div><div class="editor-row-actions"><button class="icon-button" type="button" data-action="move-item-up" aria-label="Выше">↑</button><button class="icon-button" type="button" data-action="move-item-down" aria-label="Ниже">↓</button><button class="icon-button danger-icon" type="button" data-action="delete-item" aria-label="Удалить позицию"><svg class="trash-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M10 11v6M14 11v6M9 7l1-3h4l1 3M6 7l1 13h10l1-13"></path></svg></button></div></div>
+                  <div class="quick-controls">
+                    <label class="toggle-field"><input id="item-available" type="checkbox" /><span></span><b id="item-available-label">Доступно</b></label>
+                    <label class="toggle-field"><input id="item-visible" type="checkbox" /><span></span><b id="item-visible-label">Показывать</b></label>
+                  </div>
+                  <div class="language-tabs" id="language-tabs" aria-label="Язык редактирования"></div>
+                  <div class="form-section"><label>Название<input id="item-name" maxlength="100" required /></label><label>Описание<textarea id="item-description" rows="3" maxlength="400" placeholder="Коротко расскажите о блюде"></textarea></label></div>
+                  <div class="field-grid"><label>Категория<select id="item-category"></select></label><label>Цена<div class="price-input"><input id="item-price" type="number" min="0" step="0.1" /><select id="item-currency" aria-label="Валюта цены"></select></div></label></div>
+                  <div class="form-section"><label>Фото блюда<input id="item-image-url" type="url" maxlength="1000" inputmode="url" placeholder="https://example.com/dish.jpg" /><small>Прямая ссылка или загрузка файла ниже.</small></label><label class="upload-field">Загрузить фото<input id="item-image-file" type="file" accept="image/png,image/jpeg,image/webp,image/gif" /><small id="item-image-status">PNG, JPEG, WebP или GIF до 2,5 МБ.</small></label></div>
+                  <div class="field-grid"><label>Вес / объём<input id="item-portion" maxlength="80" placeholder="350 g / 0.4 l" /></label><label>Тип меню<select id="menu-mode"><option value="regular">Обычное меню</option><option value="seasonal">Seasonal menu</option></select></label></div>
+                  <div class="form-section"><label>Варианты размера и цены<textarea id="item-variants" rows="2" maxlength="500" placeholder="Small | 5.00&#10;Large | 7.50"></textarea><small>По одной строке: название | цена.</small></label><label>Модификаторы<textarea id="item-modifiers" rows="2" maxlength="500" placeholder="Extra cheese | 1.50"></textarea><small>По одной строке: название | доплата.</small></label></div>
+                  <div class="form-section"><label class="allergen-field">Аллергены<div class="allergen-combobox"><div class="allergen-chips" id="allergen-chips"></div><input id="item-allergen-search" type="search" maxlength="100" autocomplete="off" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="allergen-suggestions" placeholder="Начните вводить аллерген" /></div><div class="allergen-suggestions" id="allergen-suggestions" role="listbox" hidden></div><small id="allergen-hint">Выберите все аллергены рецепта и подтвердите сведения перед публикацией.</small></label><label>Теги<input id="item-tags" maxlength="160" placeholder="vegetarian, seasonal" /></label></div>
+                  <div class="check-grid"><label class="check-field"><input id="item-featured" type="checkbox" /><span>Показывать как bestseller</span></label><label class="check-field"><input id="item-allergens-confirmed" type="checkbox" /><span>Аллергены подтверждены</span></label></div>
+                </form>
+              </section>
+
+              <aside class="preview-panel" aria-label="Live preview">
+                <div class="preview-toolbar"><span><i></i>Live preview</span><div class="device-switcher" role="group" aria-label="Preview device"><button class="is-active" type="button" data-device="desktop" aria-label="Desktop preview" title="Desktop"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="1.5"></rect><path d="M8 20h8M12 16v4"></path></svg></button><button type="button" data-device="tablet" aria-label="Tablet preview" title="Tablet"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="2.5" width="12" height="19" rx="1.8"></rect><path d="M11 18.5h2"></path></svg></button><button type="button" data-device="mobile" aria-label="Mobile preview" title="Mobile"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="2.5" width="8" height="19" rx="1.6"></rect><path d="M11 18.5h2"></path></svg></button></div></div>
+                <div class="preview-frame-wrap"><div class="preview-frame" id="menu-preview"></div></div>
+              </aside>
+            </div>
+          </section>
+
+          <section class="view" data-view-panel="hours" hidden>
+            <div class="page-heading"><div><p class="eyebrow">Настройки ресторана</p><h1>Часы работы</h1><p>Показывайте гостям обычное расписание, праздники и периоды временного закрытия.</p></div><button class="button button-primary" type="button" data-action="save-draft">Сохранить</button></div>
+            <section class="settings-card surface-card"><div class="settings-intro"><h2>Обычное расписание</h2><p>Если ресторан закрыт в конкретный день, включите переключатель.</p></div><div id="hours-list" class="hours-list"></div></section>
+            <section class="settings-card surface-card hours-extra"><div class="settings-intro"><h2>Часы кухни</h2><p>Необязательно. Заполните, если кухня работает по другому графику.</p></div><div id="kitchen-hours-list" class="hours-list"></div></section>
+            <section class="settings-card surface-card hours-extra"><div class="settings-intro"><h2>Специальные часы и закрытие</h2><p>Праздники, технические перерывы и временное закрытие имеют приоритет над обычным расписанием.</p></div><div id="special-hours-list" class="special-hours-list"></div><button class="button button-secondary" type="button" data-action="add-special-hours">+ Особый день</button><div class="closure-grid"><label class="toggle-field"><input id="temporary-closure" type="checkbox" /><span></span><b>Временно закрыто</b></label><label>Дата возобновления<input id="closure-resume-date" type="date" /></label><label class="full-width">Сообщение для гостей<input id="closure-message" maxlength="240" placeholder="Например: Закрыто на ремонт до 18 августа" /></label></div></section>
+          </section>
+
+          <section class="view" data-view-panel="contacts" hidden>
+            <div class="page-heading"><div><p class="eyebrow">Настройки ресторана</p><h1>Контакты и ссылки</h1><p>Эти данные используются в шапке, футере и кнопках вашего меню.</p></div><button class="button button-primary" type="button" data-action="save-draft">Сохранить</button></div>
+            <form class="settings-card surface-card contact-form" id="contact-form">
+              <div class="field-grid">
+                <label>Название кафе<input data-restaurant-field="name" maxlength="140" /></label>
+                <label>Короткое описание кафе<input data-restaurant-field="subtitle" maxlength="220" /><small class="field-help" data-contact-help="shortDescriptionHint">Отображается под названием кафе в шапке сайта-меню.</small></label>
+                <label>Телефон<input data-restaurant-field="phone" maxlength="48" /></label>
+                <label>E-mail<input data-restaurant-field="email" type="email" maxlength="160" /></label>
+                <label>Сайт заведения<input data-restaurant-field="websiteUrl" type="url" maxlength="1000" /></label>
+                <label>Ссылка кнопки бронирования<input data-restaurant-field="bookingUrl" type="url" maxlength="1000" /><small class="field-help" data-contact-help="bookingHint">Откроется, когда гость нажмёт кнопку бронирования.</small></label>
+                <label>Instagram<input data-restaurant-social="instagram" type="url" maxlength="1000" placeholder="https://instagram.com/..." /><small class="field-help" data-contact-help="instagramHint">Ссылка на публичный профиль кафе в Instagram.</small></label>
+                <label>Facebook<input data-restaurant-social="facebook" type="url" maxlength="1000" placeholder="https://facebook.com/..." /><small class="field-help" data-contact-help="facebookHint">Ссылка на публичную страницу кафе в Facebook.</small></label>
+                <label>Ссылка кнопки заказа<input data-restaurant-field="orderUrl" type="url" maxlength="1000" /><small class="field-help" data-contact-help="orderHint">Необязательно. Ссылка на доставку или заказ навынос. В текущем шаблоне кнопка заказа пока не показывается.</small></label>
+                <label>Логотип<input data-restaurant-field="logoUrl" type="url" maxlength="1000" /><small class="field-help" data-contact-help="logoHint">Прямая ссылка на изображение логотипа: PNG, JPG, WebP или GIF.</small></label>
+                <label class="full-width">Адрес<input data-restaurant-field="address" maxlength="260" /><small class="field-help" data-contact-help="addressHint">Обычный почтовый адрес — показывается в шапке и футере.</small></label>
+                <label class="full-width">Ссылка на Google Maps<input data-restaurant-field="mapUrl" type="url" maxlength="1000" /><small class="field-help" data-contact-help="googleMapsHint">Необязательно. Прямая ссылка на карточку заведения или маршрут в Google Maps.</small></label>
+                <label class="full-width">Расширенное описание кафе<textarea data-restaurant-field="description" rows="4" maxlength="1200"></textarea><small class="field-help" data-contact-help="longDescriptionHint">Необязательный текст для будущих шаблонов и SEO. В текущем шаблоне он не выводится.</small></label>
+              </div>
+            </form>
+          </section>
+
+          <section class="view" data-view-panel="analytics" hidden><div class="page-heading"><div><p class="eyebrow">Privacy-first analytics</p><h1>Аналитика меню</h1><p>Анонимные события без IP, fingerprint и постоянных пользовательских идентификаторов.</p></div><div class="period-switcher" id="analytics-period"><button type="button" data-period="7">7 дней</button><button type="button" data-period="30" class="is-active">30 дней</button><button type="button" data-period="90">90 дней</button></div></div><div id="analytics-content" class="analytics-content"><p class="analytics-loading">Загружаем аналитику…</p></div></section>
+          <section class="view" data-view-panel="domains" hidden><div class="page-heading"><div><p class="eyebrow">Публичные ссылки</p><h1>Домены и QR-коды</h1><p>QR-коды ведут на отслеживаемые ссылки и автоматически учитывают сканирования.</p></div></div><div class="domain-layout"><section class="settings-card surface-card"><div class="settings-intro"><h2>Домен меню</h2><p>Для production подключите DNS и Cloudflare Worker; локально работает localhost.</p></div><form id="domain-form" class="inline-form"><label>Основной домен<input id="primary-domain" maxlength="180" placeholder="menu.example.com" /></label><button class="button button-primary" type="submit">Сохранить</button></form><p class="domain-state" id="domain-state"></p></section><section class="settings-card surface-card"><div class="settings-intro"><h2>QR-ссылки</h2><p>Создайте отдельную ссылку для стола, стойки или флаера.</p></div><form id="qr-form" class="inline-form qr-form"><label>Название<input id="qr-label" maxlength="80" placeholder="Стол 1" required /></label><label>Идентификатор<input id="qr-slug" maxlength="80" placeholder="table-1" /></label><button class="button button-primary" type="submit">Создать</button></form><div id="qr-codes-list" class="qr-codes-list"></div></section></div></section>
+        </section>
+
+        <section class="workspace commercial-workspace" aria-live="polite">
+          <section class="view subscription-view" data-view-panel="subscription" hidden>
+            <div class="subscription-hero surface-card">
+              <div>
+                <p class="eyebrow">Полная версия Menu-on</p>
+                <h1>Превратите демо в рабочее меню</h1>
+                <p>Подключим постоянный адрес, редактор для команды, аналитику и поддержку — без переноса данных из этого демо.</p>
+                <button class="button button-subscription-hero" type="button" data-action="start-subscription-order">Подключить полную версию <span>→</span></button>
+              </div>
+            </div>
+
+            <section class="subscription-value surface-card">
+              <div class="value-heading"><div><p class="eyebrow">Зачем подключаться</p><h2>Гостям — удобное меню. Команде — контроль без разработчика.</h2></div><p>Демо уже показывает ваш будущий сервис. Полная версия делает его постоянным рабочим инструментом ресторана.</p></div>
+              <div class="value-grid">
+                <article class="value-card"><span class="value-icon">↗</span><h3>Меню всегда под рукой</h3><p>Свой адрес и QR-коды ведут гостей прямо в меню на их телефоне — без приложений и регистрации.</p></article>
+                <article class="value-card"><span class="value-icon">✦</span><h3>Изменения за минуты</h3><p>Цены, наличие, позиции, фото и расписание меняются в кабинете. Не нужно ждать дизайнера или разработчика.</p></article>
+                <article class="value-card"><span class="value-icon">⌁</span><h3>Понятно, что работает</h3><p>Смотрите переходы и сканы QR, управляйте несколькими языками и поддерживайте актуальность меню каждый день.</p></article>
+              </div>
+              <div class="subscription-outcome"><strong>В результате</strong><span>у вас остаётся готовое меню, постоянная ссылка, доступ для команды и поддержка при запуске.</span></div>
+            </section>
+
+            <section class="subscription-process surface-card">
+              <div><p class="eyebrow">Как подключение пройдёт</p><h2>Три прозрачных шага</h2><p>Никакой повторной загрузки меню: используем то, что уже собрано в этом кабинете.</p></div>
+              <ol class="process-steps"><li><span>1</span><div><strong>Подтверждаете данные</strong><small>Компания, страна и контакт для документов.</small></div></li><li><span>2</span><div><strong>Получаете условия и оплату</strong><small>Фиксируем тариф, документы и способ оплаты.</small></div></li><li><span>3</span><div><strong>Запускаем рабочую версию</strong><small>Постоянный адрес, доступ команде и поддержка.</small></div></li></ol>
+              <button class="button button-subscription-hero" type="button" data-action="start-subscription-order">Начать подключение <span>→</span></button>
+            </section>
+
+            <div class="subscription-layout">
+              <aside class="subscription-offer surface-card">
+                <p class="eyebrow">Тариф</p>
+                <h2>Полная версия</h2>
+                <p class="offer-copy">Всё, что уже есть в демо, плюс постоянная работа для вашей команды.</p>
+                <div class="price-line"><span>Подключение</span><strong>€299</strong></div>
+                <div class="price-line"><span>Подписка</span><strong>€39 <small>/ месяц</small></strong></div>
+                <ul class="offer-list"><li>Собственный адрес меню</li><li>Меню на нескольких языках</li><li>Цены и доступность без разработчика</li><li>Аналитика, QR-коды, SSL и хостинг</li><li>Поддержка при запуске</li></ul>
+                <p class="offer-note">Суммы показываются до налогов. Финальные условия и валюта зависят от страны и статуса клиента.</p>
+              </aside>
+
+              <form class="subscription-flow surface-card" id="subscription-form">
+                <div class="flow-heading"><div><p class="eyebrow">Шаг 2 · оформление подключения</p><h2>Подтвердите данные компании</h2></div><span class="flow-step">2 / 2</span></div>
+                <p class="flow-copy">Проверьте данные компании. Страну мы предзаполнили по локации кафе — при необходимости исправьте её.</p>
+                <div class="field-grid subscription-fields">
+                  <label>Название компании / ИП<input id="subscription-company" name="company" maxlength="160" autocomplete="organization" required /></label>
+                  <label>VAT / регистрационный номер<input id="subscription-tax-id" name="taxId" maxlength="80" autocomplete="off" /></label>
+                  <label>Имя представителя<input id="subscription-representative" name="representative" maxlength="120" autocomplete="name" required /></label>
+                  <label>E-mail для документов<input id="subscription-email" name="email" type="email" maxlength="160" autocomplete="email" required /></label>
+                  <label class="full-width">Страна компании<select id="subscription-country" name="country"><option value="">Уточните страну</option><optgroup label="Европейский союз"><option value="AT">Австрия</option><option value="BE">Бельгия</option><option value="BG">Болгария</option><option value="HR">Хорватия</option><option value="CY">Кипр</option><option value="CZ">Чехия</option><option value="DK">Дания</option><option value="EE">Эстония</option><option value="FI">Финляндия</option><option value="FR">Франция</option><option value="DE">Германия</option><option value="GR">Греция</option><option value="HU">Венгрия</option><option value="IE">Ирландия</option><option value="IT">Италия</option><option value="LV">Латвия</option><option value="LT">Литва</option><option value="LU">Люксембург</option><option value="MT">Мальта</option><option value="NL">Нидерланды</option><option value="PL">Польша</option><option value="PT">Португалия</option><option value="RO">Румыния</option><option value="SK">Словакия</option><option value="SI">Словения</option><option value="ES">Испания</option><option value="SE">Швеция</option></optgroup><optgroup label="Другие рынки"><option value="BY">Беларусь</option><option value="KZ">Казахстан</option><option value="RU">Россия</option><option value="OTHER">Другая страна</option></optgroup></select></label>
+                </div>
+                <div class="legal-preview"><strong id="commercial-terms-title">Условия для выбранного региона</strong><p id="commercial-terms-copy">Перед оплатой вы увидите фиксированную редакцию заказа, условий сервиса и DPA.</p><div class="legal-links"><button type="button" class="text-button" data-action="show-commercial-details">Как устроено подключение</button><button type="button" class="text-button" data-action="show-commercial-legal">Что будет в документах</button></div></div>
+                <label class="acceptance-check"><input id="subscription-authority" type="checkbox" required /><span>Я уполномочен действовать от имени компании.</span></label>
+                <label class="acceptance-check"><input id="subscription-terms" type="checkbox" required /><span>Я понимаю, что перед оплатой мне будут предоставлены неизменяемые условия сервиса и DPA.</span></label>
+                <button class="button button-subscription-submit" type="submit">Создать заказ на подключение <span>→</span></button>
+                <p class="flow-note">Заказ сохранится в кабинете. Защищённая ссылка на оплату появится после настройки юридических документов и платёжного провайдера.</p>
+              </form>
+            </div>
+
+            <section class="support-card surface-card"><div><p class="eyebrow">Нужна помощь?</p><h2>Обсудим подключение в удобном канале</h2><p>Ответим на вопросы по переносу меню, домену, языкам и тарифу.</p></div><div class="support-actions"><a id="support-whatsapp" class="button button-secondary" href="#support" target="_blank" rel="noreferrer">WhatsApp</a><a id="support-email" class="button button-secondary" href="#support">Написать e-mail</a><button class="button button-primary" type="button" data-action="copy-support-message">Скопировать сообщение</button></div></section>
+          </section>
+        </section>
+      </main>
+    </div>
+
+    <dialog id="modal" class="modal"><div id="modal-content"></div></dialog>
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <script type="module" src="/admin.js?v=20260814-13"></script>
+  </body>
+</html>

@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex,nofollow" />
+    <title>Menu-on · Кабинет кафе</title>
+    <link rel="stylesheet" href="/site-admin.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="login-card" id="login-card" hidden>
+        <a class="brand" href="https://menu-on.com/" aria-label="Menu-on">menu<span>·</span>on</a>
+        <p class="eyebrow">Личный кабинет</p>
+        <h1>Управление меню</h1>
+        <p class="intro">Войдите с логином и временным паролем из коммерческого предложения.</p>
+        <form id="login-form" novalidate>
+          <label>Логин<input id="login-username" type="text" autocomplete="username" required /></label>
+          <label>Пароль<input id="login-password" type="password" autocomplete="current-password" minlength="12" required /></label>
+          <p class="form-message" id="login-message" role="alert"></p>
+          <button class="button button-primary" type="submit">Войти в кабинет</button>
+        </form>
+        <p class="security-note">Доступ ограничен этим кафе. Сессия завершается через 12 часов.</p>
+      </section>
+
+      <section class="workspace" id="workspace" hidden>
+        <header class="topbar">
+          <div><a class="brand" href="https://menu-on.com/" aria-label="Menu-on">menu<span>·</span>on</a><p class="eyebrow">Кабинет кафе</p></div>
+          <div class="topbar-actions"><a id="open-public-site" class="button button-secondary" target="_blank" rel="noreferrer">Открыть меню ↗</a><button id="logout" class="text-button" type="button">Выйти</button></div>
+        </header>
+        <section class="hero">
+          <div><p class="eyebrow">Меню · цены</p><h1 id="restaurant-name">Загружаем меню…</h1><p>Измените цену и нажмите «Опубликовать». Новая версия сразу появится по публичной ссылке.</p></div>
+          <div class="publish-panel"><span class="publish-state" id="publish-state">Нет изменений</span><button id="publish" class="button button-primary" type="button" disabled>Опубликовать цены</button></div>
+        </section>
+        <p class="notice" id="notice" role="status" hidden></p>
+        <section id="menu-list" class="menu-list" aria-live="polite"></section>
+        <footer>Menu-on · Пилотная версия кабинета. Для изменения состава меню, фото или контактов обратитесь к менеджеру.</footer>
+      </section>
+    </main>
+    <script type="module" src="/site-admin.js"></script>
+  </body>
+</html>

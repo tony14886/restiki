@@ -1,0 +1,53 @@
+{
+  "schema": "classic-light.anatomy/v1",
+  "purpose": "Canonical component map for assembling data-driven restaurant landing pages.",
+  "sections": {
+    "header": [
+      { "id": "header-logo", "dataSlot": "restaurant.logo", "kind": "brand link", "required": false },
+      { "id": "header-title", "diagramNumber": 3, "dataSlot": "restaurant.name", "kind": "H1", "required": true },
+      { "id": "header-subtitle", "diagramNumber": 4, "dataSlot": "restaurant.subtitle", "kind": "text", "required": false },
+      { "id": "header-address", "dataSlot": "restaurant.address", "kind": "map link", "required": false },
+      { "id": "header-phone", "dataSlot": "restaurant.phone", "kind": "tel link", "required": false },
+      { "id": "header-hours", "dataSlot": "restaurant.openingHours.schedule", "kind": "opening-hours schedule", "required": false, "rule": "Render only published schedule rows; do not render a volatile open-now status." },
+      { "id": "header-languages", "dataRepeat": "localization.languages", "kind": "language switcher", "required": false },
+      { "id": "header-booking", "dataSlot": "restaurant.bookingUrl", "kind": "CTA link", "required": false }
+    ],
+    "menu": [
+      { "id": "category-navigation", "diagramNumber": 10, "dataRepeat": "menu.categories[]", "kind": "dynamic category navigation", "required": false, "rule": "Render only categories that contain at least one menu item." },
+      { "id": "menu-category-tab-all", "diagramNumber": 11, "dataSlot": "ui.all", "kind": "filter button", "required": true },
+      { "id": "menu-category-tab", "diagramNumberRange": [12, 19], "dataRepeat": "menu.categories[]", "kind": "individual dynamic category button", "required": false, "rule": "Each rendered instance carries data-component-key = category.id; label, icon and order come from that category object." },
+      { "id": "menu-category-section", "dataRepeat": "menu.categories[]", "kind": "section", "required": false },
+      { "id": "menu-card", "dataRepeat": "menu.items[]", "kind": "dish card", "required": false }
+    ],
+    "location": [
+      { "id": "location-container", "diagramNumber": 31, "kind": "location section container", "required": false },
+      { "id": "location-map", "diagramNumber": 32, "dataSlot": "map.embedUrl", "kind": "map embed", "required": false },
+      { "id": "location-card-title", "diagramNumber": 33, "dataSlot": "locationCard.name", "kind": "cafe title", "required": true },
+      { "id": "location-card-rating", "diagramNumber": 34, "dataSlot": "locationCard.rating", "kind": "rating", "required": false },
+      { "id": "location-card-reviews", "diagramNumber": 35, "dataSlot": "locationCard.reviewsCount", "kind": "review count", "required": false },
+      { "id": "location-card-address", "diagramNumber": 36, "dataSlot": "locationCard.address", "kind": "address", "required": true },
+      { "id": "location-card-mini-photo", "diagramNumber": 37, "dataSlot": "locationCard.miniPhoto", "kind": "mini photo", "required": false },
+      { "id": "location-card-hours", "diagramNumber": 38, "dataSlot": "locationCard.openingHours.schedule", "kind": "opening-hours schedule", "required": false, "rule": "Render only published schedule rows; do not render a volatile open-now status." },
+      { "id": "location-directions", "diagramNumber": 39, "dataSlot": "locationCard.directionsUrl", "kind": "CTA link", "required": false }
+    ],
+    "footer": [
+      { "id": "footer-brand", "diagramNumber": 41, "dataSlot": "restaurant.logo", "kind": "brand link", "required": false },
+      { "id": "footer-contacts", "dataSources": ["restaurant.phone", "restaurant.email", "restaurant.websiteUrl", "restaurant.address"], "kind": "contact group", "required": false },
+      { "id": "footer-contacts-heading", "diagramNumber": 42, "dataSlot": "ui.contactUs", "kind": "section heading", "required": false },
+      { "id": "footer-contact-phone", "diagramNumber": 43, "dataSlot": "restaurant.phone", "kind": "tel link", "required": false },
+      { "id": "footer-contact-email", "diagramNumber": 44, "dataSlot": "restaurant.email", "kind": "mailto link", "required": false },
+      { "id": "footer-contact-website", "diagramNumber": 45, "dataSlot": "restaurant.websiteUrl", "kind": "external link", "required": false },
+      { "id": "footer-contact-address", "dataSlot": "restaurant.address", "kind": "directions link", "required": false, "condition": "Optional footer contact; not shown in the reference layout." },
+      { "id": "footer-socials", "diagramNumber": 46, "dataRepeat": "restaurant.socials[]", "kind": "social link group", "required": false },
+      { "id": "footer-hours", "diagramNumber": 47, "dataSlot": "restaurant.openingHours", "kind": "hours table", "required": false },
+      { "id": "footer-booking-cta", "diagramNumber": 48, "dataSlot": "restaurant.bookingUrl", "kind": "CTA link", "required": false }
+    ],
+    "legal": [
+      { "id": "legal-bar", "diagramNumber": 49, "kind": "legal strip container", "required": false },
+      { "id": "legal-copyright", "diagramNumber": 50, "dataSlot": "footer.copyright", "kind": "copyright text", "required": false },
+      { "id": "legal-privacy", "diagramNumber": 51, "dataSlot": "footer.privacyUrl", "kind": "privacy link", "required": false },
+      { "id": "legal-terms", "diagramNumber": 52, "dataSlot": "footer.termsUrl", "kind": "terms link", "required": false },
+      { "id": "legal-imprint", "diagramNumber": 52, "dataSlot": "footer.imprintUrl", "kind": "imprint link", "required": false }
+    ]
+  }
+}

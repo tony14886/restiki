@@ -1,0 +1,104 @@
+{
+  "version": 1,
+  "sendings": [
+    {
+      "id": "3ffb898f-40ff-4b17-b1cd-f77edb757d6e",
+      "productionId": "0534adfd-0196-43d7-bf44-030aed5bf256:9",
+      "cafeName": "Cafe Ritter",
+      "city": "Вена, Австрия",
+      "nativeLanguage": {
+        "code": "de",
+        "label": "Deutsch"
+      },
+      "landingUrl": "https://cafe-ritter.menu-on.com/",
+      "adminUrl": "https://cabinet.menu-on.com/sites/cafe-ritter",
+      "template": {
+        "id": "classic-light-1",
+        "name": "Шаблон №1 · Classic Light"
+      },
+      "emails": [
+        "office@caferitter.at"
+      ],
+      "socials": [],
+      "phone": "+43 1 5878238",
+      "createdAt": "2026-08-14T10:57:51.688Z",
+      "updatedAt": "2026-08-14T10:57:51.688Z"
+    },
+    {
+      "id": "3ce02cbc-1c47-440f-8d56-3d279e674f6a",
+      "productionId": "0534adfd-0196-43d7-bf44-030aed5bf256:14",
+      "cafeName": "Vanilla Cafe",
+      "city": "Вена, Австрия",
+      "nativeLanguage": {
+        "code": "de",
+        "label": "Deutsch"
+      },
+      "landingUrl": "https://vanilla-cafe.menu-on.com/",
+      "adminUrl": "https://cabinet.menu-on.com/sites/vanilla-cafe",
+      "template": {
+        "id": "classic-light-1",
+        "name": "Шаблон №1 · Classic Light"
+      },
+      "emails": [],
+      "socials": [],
+      "chatLinks": [],
+      "phone": "+43 660 6179515",
+      "createdAt": "2026-08-14T13:01:31.633Z",
+      "updatedAt": "2026-08-14T13:01:31.633Z"
+    },
+    {
+      "id": "dbb5169f-9d5a-4979-8b25-e34ed717766b",
+      "productionId": "195bbc1b-abbb-495e-b3ec-4837d63ae7aa:4",
+      "cafeName": "L'Osteria Prager Carrée",
+      "city": "дрезден",
+      "nativeLanguage": {
+        "code": "de",
+        "label": "Deutsch"
+      },
+      "landingUrl": "https://l-osteria-prager-carree.menu-on.com/",
+      "adminUrl": "https://cabinet.menu-on.com/sites/l-osteria-prager-carree",
+      "template": {
+        "id": "classic-light-1",
+        "name": "Шаблон №1 · Classic Light"
+      },
+      "emails": [
+        "pragercarree@losteria.de"
+      ],
+      "socials": [
+        {
+          "network": "tiktok",
+          "url": "https://www.tiktok.com/@losteria.de?lang=de-DE"
+        },
+        {
+          "network": "facebook",
+          "url": "https://www.facebook.com/losteria.de/"
+        },
+        {
+          "network": "instagram",
+          "url": "https://instagram.com/losteria.de/"
+        },
+        {
+          "network": "youtube",
+          "url": "https://www.youtube.com/channel/UC_GNGspDcWMsY1IZKzU5O1g"
+        }
+      ],
+      "chatLinks": [
+        {
+          "network": "tiktok",
+          "url": "https://www.tiktok.com/@losteria.de?lang=de-DE"
+        },
+        {
+          "network": "facebook",
+          "url": "https://www.facebook.com/losteria.de/"
+        },
+        {
+          "network": "instagram",
+          "url": "https://instagram.com/losteria.de/"
+        }
+      ],
+      "phone": "+49 351 48451040",
+      "createdAt": "2026-08-14T13:07:31.967Z",
+      "updatedAt": "2026-08-14T13:07:31.967Z"
+    }
+  ]
+}

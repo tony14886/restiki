@@ -1,0 +1,63 @@
+{
+  "id": "classic-light",
+  "version": "1.2.0",
+  "name": "Classic Light Restaurant Menu",
+  "entry": "template.html",
+  "content": {
+    "defaults": "defaults.json",
+    "example": "example-content.json",
+    "inlineScriptId": "template-content"
+  },
+  "files": [
+    "template.html",
+    "template.css",
+    "template.js",
+    "template.anatomy.json",
+    "PORTING.md",
+    "defaults.json",
+    "example-content.json"
+  ],
+  "capabilities": {
+    "responsive": true,
+    "languages": true,
+    "categoryNavigation": true,
+    "optionalMap": true,
+    "optionalBooking": true,
+    "optionalSocials": true,
+    "standaloneExport": true
+  },
+  "dataSlots": [
+    "restaurant.*",
+    "localization.*",
+    "menu.categories[]",
+    "menu.items[]",
+    "map.*",
+    "footer.*"
+  ],
+  "anatomy": {
+    "file": "template.anatomy.json",
+    "footerContactComponents": [
+      "footer-contacts-heading",
+      "footer-contact-phone",
+      "footer-contact-email",
+      "footer-contact-website",
+      "footer-contact-address"
+    ],
+    "headerComponents": [
+      "header-title",
+      "header-subtitle"
+    ],
+    "menuCategoryComponents": [
+      "category-navigation",
+      "menu-category-tab-all",
+      "menu-category-tab",
+      "menu-category-section"
+    ],
+    "legalComponents": [
+      "legal-copyright",
+      "legal-privacy",
+      "legal-terms",
+      "legal-imprint"
+    ]
+  }
+}
